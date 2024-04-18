@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import CockTailList from "./components/CockTailList.jsx";
 import './App.css'
 
 function App() {
@@ -23,6 +23,7 @@ function App() {
                     </ul>
                 </nav>
             </div>
+            <CockTailList />
 
         </div>
     </>
