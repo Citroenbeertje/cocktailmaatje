@@ -9,21 +9,24 @@ function App() {
     return <>
         <div>
 
-            <div className='header'>
-                <div className='header-logo'>
+            <div className='header-section'>
+                <div className='header-logo-left'>
                     <h1>Cocktailmaatje </h1>
                     <h2>Cocktailrecepten en inspiratie</h2>
                 </div>
-                <nav className="header__nav">
+                <nav className="header-nav-right">
                     <ul className="header__nav-list">
-                        <li className="header__nav-item"><a href="#" className="header__nav-link">Home</a></li>
-                        <li className="header__nav-item"><a href="#" className="header__nav-link">About</a></li>
-                        <li className="header__nav-item"><a href="#" className="header__nav-link">Favorites</a></li>
-                        <li className="header__nav-item"><a href="#" className="header__nav-link">Login</a></li>
+                        <div className="nav-container">
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Home</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">About</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Favorites</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Login</a></li>
+                        </div>
                     </ul>
+
                 </nav>
             </div>
-            <CockTailList />
+            <CockTailList/>
 
         </div>
     </>
