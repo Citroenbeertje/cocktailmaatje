@@ -7,24 +7,24 @@ function App() {
     // const [count, setCount] = useState(0)
 
     return <>
-        <div>
+        <div className='background'>
 
             <div className='header-section'>
-                <div className='header-logo-left'>
+                <div className='header-left-logo'>
                     <h1>Cocktailmaatje </h1>
                     <h2>Cocktailrecepten en inspiratie</h2>
                 </div>
-                <nav className="header-nav-right">
+                <div className="header-right">
                     <ul className="header__nav-list">
-                        <div className="nav-container">
+                        <nav className="nav-container">
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Home</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">About</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Favorites</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Login</a></li>
-                        </div>
+                        </nav>
                     </ul>
 
-                </nav>
+                </div>
             </div>
             <CockTailList/>
 

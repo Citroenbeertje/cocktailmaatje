@@ -1,4 +1,4 @@
-/*algehele reset van css */
+/*--------------algehele reset van css------------- */
 * {
     margin: 0;
     padding: 0;
@@ -25,39 +25,55 @@
 }
 
 /*----------------------------------------------------------------*/
-
-.header__nav-list {
-    display: flex;
-    list-style-type: none;
+.background {
     background-color:  #263019;
+    border: 1px solid red;
 }
-
 .header-section {
     display: flex;
     list-style-type: none;
     background-color:  #263019;
+    margin: 150px 200px 0;
 }
 
-.header-nav-right {
+.header-left-logo {
+    border: 1px solid red;
+}
+.header__nav-list {
+    display: flex;
+    list-style-type: none;
+    background-color:  #263019;
+    border: 1px solid red;
+}
+
+
+.header-right {
     width: 100%;
     display: flex;
     justify-content: flex-end;
     border: 1px solid red;
 }
 
+.header__nav-list {
+    margin-left: 20px;
+    border: 1px solid red;
+}
+
+
 .nav-container {
     width: 100%;
     display: flex;
     border: 1px solid red;
-    margin-left: 20px;
+
 }
 
 .nav-container a {
     font-family: "Bebas Neue", sans-serif;
-    font-size: 1,5rem;
+    font-size: 1.5rem;
     text-decoration: none;
     color: #ECECEC;
     padding: 15px;
+    border: 1px solid red;
 }
 
 
@@ -65,14 +81,12 @@ h1 {
     font-family: "DM Serif Display", serif;
     font-size: 5rem;
     color: #ECECEC;
-    margin:
 }
 
 h2 {
     font-family: "Courier Prime", monospace;
     font-size: 2rem;
     color: #ECECEC;
-    margin:
 }
 
 /*de kleurtjes en het uiterlijk aanpassen*/
