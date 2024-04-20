@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import CockTailList from "./components/CockTailList.jsx";
+import AZList from "./components/AZList.jsx";
 import './App.css'
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
 
                 </nav>
             </div>
-            <CockTailList/>
+            <AZList/>
 
         </div>
     </>
