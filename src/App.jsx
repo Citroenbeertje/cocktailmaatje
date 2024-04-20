@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AZList from "./components/AZList/AZList.jsx";
 import './App.css'
+import SearchBar from "./components/SearchBar/SearchBar.jsx";
 
 function App() {
     return <>

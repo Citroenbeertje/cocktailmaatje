@@ -1,0 +1,27 @@
+.search {
+}
+
+.search-bar-section{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-bar-core {
+    padding-top: 50px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid blue;
+}
+
+.search-input-bar {
+    display: flex;
+    border: 1px solid red;
+}
+
+.a-z-list {
+    display: flex;
+    justify-content: center;
+    border: 5px solid mediumpurple;
+}
