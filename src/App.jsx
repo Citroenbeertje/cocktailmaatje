@@ -1,11 +1,9 @@
 import { useState } from 'react'
 
-import CockTailList from "./components/CockTailList.jsx";
+import AZList from "./components/AZList/AZList.jsx";
 import './App.css'
 
 function App() {
-    // const [count, setCount] = useState(0)
-
     return <>
         <div className='background'>
 
@@ -17,16 +15,18 @@ function App() {
                 <div className="header-right">
                     <ul className="header__nav-list">
                         <nav className="nav-container">
-                            <li className="header__nav-item"><a href="#" className="header__nav-link">Home</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">About</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Cocktail Gallery</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Favorites</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Login</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Register</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Lang</a></li>
                         </nav>
                     </ul>
 
                 </div>
             </div>
-            <CockTailList/>
+            <A-Z-List/>
 
         </div>
     </>

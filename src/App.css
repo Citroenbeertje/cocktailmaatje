@@ -85,11 +85,16 @@ h1 {
 
 h2 {
     font-family: "Courier Prime", monospace;
-    font-size: 2rem;
+    font-size: 1rem;
     color: #ECECEC;
 }
 
-/*de kleurtjes en het uiterlijk aanpassen*/
+/*--------a-z-lijst---------*/
+.a-z-list {
+    font-family: "Courier Prime", monospace;
+    font-size: 1rem;
+    color: #ECECEC;
+}
 
 
 
