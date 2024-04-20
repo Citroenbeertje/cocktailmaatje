@@ -1,5 +1,4 @@
 import { useState } from 'react'
-
 import AZList from "./components/AZList/AZList.jsx";
 import './App.css'
 
@@ -26,7 +25,8 @@ function App() {
 
                 </div>
             </div>
-            <A-Z-List/>
+
+            <AZList/>
 
         </div>
     </>
