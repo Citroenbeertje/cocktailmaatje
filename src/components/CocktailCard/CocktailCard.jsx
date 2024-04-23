@@ -8,6 +8,13 @@ function CocktailCard({strDrink, strIngredient1}) {
     );
 }
 
+<<<<<<< Updated upstream
 <CocktailCard strDrink={} strIngredient1={}/>
 
 export default CocktailCard;
+=======
+// <CocktailCard strDrink={} strIngredient1={}/>
+
+export default CocktailCard;
+
+>>>>>>> Stashed changes
