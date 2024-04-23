@@ -25,6 +25,11 @@
 }
 
 /*----------------------------------------------------------------*/
+ html, body, #root, .background {
+     height: 100vh;
+ }
+
+
 .background {
     background-color:  #263019;
     border: 1px solid red;

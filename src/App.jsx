@@ -1,36 +1,40 @@
 import { useState } from 'react'
 import AZList from "./components/AZList/AZList.jsx";
+import CocktailCard from "./components/CocktailCard/CocktailCard.jsx";
 import './App.css'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 
 function App() {
-    return <>
+    return (
+        <>
         <div className='background'>
 
             <div className='header-section'>
                 <div className='header-left-logo'>
                     <h1>Cocktailmaatje </h1>
-                    <h2>Cocktailrecepten en inspiratie</h2>
+                    <h2>Cocktail recepten en inspiratie</h2>
                 </div>
                 <div className="header-right">
                     <ul className="header__nav-list">
                         <nav className="nav-container">
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Home</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">About</a></li>
-                            <li className="header__nav-item"><a href="#" className="header__nav-link">Cocktail Gallery</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Cocktail
+                                Gallery</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Favorites</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Login</a></li>
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Register</a></li>
-                            <li className="header__nav-item"><a href="#" className="header__nav-link">Lang</a></li>
+                            <li className="header__nav-item"><a href="#" className="header__nav-link">Language</a></li>
                         </nav>
                     </ul>
 
                 </div>
             </div>
-
-            <AZList/>
-
+            <SearchBar/>
+            <CocktailCard/>
         </div>
     </>
+);
 }
 
 
