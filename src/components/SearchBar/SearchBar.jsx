@@ -8,18 +8,19 @@ import React, { useState } from 'react';
 
 function SearchBar({placeholder= "Search for cocktails", data}) {
 
-    const [filterType, setFilterType] = useState("Search all")
+    const [filterType, setFilterType] = useState("search all")
 
-    console.log(filterType)
+
+    // console.log(filterType)
 
     const handleClick = () => {
-        console.log('search');
-        // TODO letter nog meegeven axios om cocktail lijst te tonen
+    //     console.log('search');
+    //     // TODO letter nog meegeven axios om cocktail lijst te tonen
     };
 
     const renderBar = (filterTypeValue) => {
         console.log("filterTypeValue", filterTypeValue)
-        if (filterTypeValue === "Cocktails" || filterTypeValue === "Search all") {
+        if (filterTypeValue === "cocktails" || filterTypeValue === "search all") {
             console.log("AAA")
             return <>
                 <input type="text" placeholder="search for cocktails"/>
@@ -27,7 +28,17 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
                 <button className="search-button" onClick={handleClick}>Search</button>
             </>
         }
-        console.log("BBB")
+        else {
+            console.log("BBB")
+            return <>
+                <select
+                    name="secondary-dropdown"
+                    id="blabla">
+
+                    <option value="ingredient">---- Choose Ingredient ----</option>
+                </select>
+            </>
+        }
     }
 
     return (
@@ -41,16 +52,15 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
                         value={filterType}
                         onChange={(event) => setFilterType(event.target.value)}
                     >
-                        <option value="Search all">Search all</option>
-                        <option value="Cocktails">Cocktails</option>
-                        <option value="Ingredients">Ingredients</option>
-                        <option value="Category">Category</option>
-                        <option value="Glass Type">Glass Type</option>
-                        <option value="Virgin Drinks">Virgin Drinks</option>
+                        <option value="search all">Search all</option>
+                        <option value="cocktails">Cocktails</option>
+                        <option value="ingredients">Ingredients</option>
+                        <option value="category">Category</option>
+                        <option value="glass type">Glass type</option>
+                        <option value="virgin Drinks">Virgin drinks</option>
                     </select>
 
                     {renderBar(filterType)}
-
                 </div>
                 <AZList/>
             </div>
