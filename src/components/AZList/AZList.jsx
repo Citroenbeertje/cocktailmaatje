@@ -11,9 +11,12 @@ import './AZList.css'
 // www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
 function AZList() {
     const [cocktails, setCocktails] = useState([]);
-    const handleClick = (letter) => {
-        console.log(letter);
-
+    console.log("cocktails", cocktails);
+    const handleClick = async (letter) => {
+        // console.log(letter);
+        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`)
+        console.log("response", response);
+        setCocktails(response.data.drinks);
     }
     // TODO letter nog meegeven axios om cocktail lijst te tonen
     //
@@ -23,13 +26,18 @@ function AZList() {
     return (
         <div>
             <div className='a-z-list'>
-                {"A B C D E F G H I J K L M N O P Q R S T U V W".split(" ").map((letter) => (
-                    <button key={letter} onClick={() => handleClick(letter)}>
+                {"A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ").map((letter) => (
+                    <button key={letter} onClick={() => handleClick(letter.toLowerCase())}>
                         {letter}
                     </button>
                 ))}
             </div>
+            <div className='drink-list'>
+                {cocktails.map((drink) => <button key={drink.idDrink}>{drink.strDrink}</button>)}
+
+            </div>
         </div>
     );
 }
+
 export default AZList;
