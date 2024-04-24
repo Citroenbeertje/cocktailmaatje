@@ -7,10 +7,10 @@ import AZList from "../AZList/AZList.jsx";
 
 function SearchBar({placeholder= "Search for cocktails", data}) {
 
-    const handleClick = (letter) => {
-        console.log(letter);
+    const handleClick = () => {
+        console.log('search');
         // TODO letter nog meegeven axios om cocktail lijst te tonen
-    }
+    };
 
     return (
         <div className="search">
@@ -21,7 +21,7 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
                     </select>
                     <input type="text" placeholder="search for cocktails"/>
                     <div className="search-icon">searchicon</div>
-                    <button>Search</button>
+                    <button onClick={handleClick}>Search</button>
                 </div>
                 <AZList/>
             </div>
@@ -30,5 +30,15 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
 
     )
 }
+//
+// select geeft dropdown met 4 extra keuzes:
+// ingredients, category, virgin drinks?, glass shape
+//
+// wanneer je een daarvan selecteerd verandert:
+//     het zoekveld in een dropdown.
+//     zoekknop verdwijnt
+//
+// het alfabet blijft staat, waardoor je ook op alfabet kan klikken
+// en elke letter toont bijbehorende lijst aan.
 
 export default SearchBar;

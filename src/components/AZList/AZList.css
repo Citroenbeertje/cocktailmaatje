@@ -1,0 +1,13 @@
+.a-z-list button {
+    background-color: darkolivegreen;
+    padding: 5px;
+    color: #ECECEC;
+    font-family: "Courier Prime", monospace;
+    font-size: 1rem;
+}
+
+.a-z-list button:hover {
+    background-color: hotpink;
+    font-weight: bold;
+    color: antiquewhite;
+}
