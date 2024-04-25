@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CocktailCard from "./components/CocktailCard/CocktailCard.jsx";
 import './App.css'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import CocktailCard from "./components/CocktailCard/CocktailCard.jsx";
 
 function App() {
     return (
