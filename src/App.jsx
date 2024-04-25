@@ -2,6 +2,7 @@ import { useState } from 'react'
 import AZList from "./components/AZList/AZList.jsx";
 import './App.css'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import CocktailCard from "./components/CocktailCard/CocktailCard.jsx";
 
 function App() {
     return <>
@@ -27,8 +28,8 @@ function App() {
                 </div>
             </div>
 
-            <AZList/>
-
+            {/*<AZList/>*/}
+            {/*<CocktailCard strDrink="boom" strIngredient1="aap" />*/}
         </div>
     </>
 }

@@ -1,5 +1,5 @@
-function CocktailCard() {
 
+function CocktailCard({ strDrink, strIngredient1 }) {
     return (
     <div className='image-info-card'>
         {/*<img src="" alt=""/>*/}
@@ -11,8 +11,5 @@ function CocktailCard() {
     </div>
     );
 }
-
-
-// <CocktailCard strDrink={} strIngredient1={}/>
 
 export default CocktailCard;
