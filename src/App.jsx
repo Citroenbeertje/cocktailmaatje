@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
-import DetailCocktailCard from "./components/CocktailCard/DetailCocktailCard.jsx";
-
+import DetailCocktailCard from "./components/DetailCocktailCard/DetailCocktailCard.jsx";
+import BigCocktailCard from "./components/BigCocktailCard/BigCocktailCard.jsx";
 function App() {
     return (
         <div className='background'>
@@ -31,7 +31,7 @@ function App() {
 
             <SearchBar/>
             <DetailCocktailCard/>
-
+            <BigCocktailCard/>
         </div>
 );
 }

@@ -4,7 +4,7 @@ function DetailCocktailCard(drinks) {
         <div className="parent-container">
             <div className="cocktail-card">
                 <div className="image-side">
-                    <img
+                    <img className="detail-image"
                         src="https://cocktail-stack.netlify.app/static/3b40847ea8709ee1224bef4e95b6485d/9a128/k6v97f1487602550.jpg"
                         alt="Cocktail Image"
                     />
