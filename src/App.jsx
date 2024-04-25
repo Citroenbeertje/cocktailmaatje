@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import CocktailCard from "./components/CocktailCard/CocktailCard.jsx";
 import './App.css'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
-import CocktailCard from "./components/CocktailCard/CocktailCard.jsx";
+import DetailCocktailCard from "./components/CocktailCard/DetailCocktailCard.jsx";
 
 function App() {
     return (
@@ -31,7 +30,7 @@ function App() {
             </div>
 
             <SearchBar/>
-            <CocktailCard strDrink="boom" strIngredient1="aap" />
+            <DetailCocktailCard/>
 
         </div>
 );

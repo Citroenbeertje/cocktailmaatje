@@ -1,18 +1,14 @@
 import './SearchBar.css';
 import axios from 'axios';
 import AZList from "../AZList/AZList.jsx";
-<<<<<<< HEAD
 import React, { useState } from 'react';
 // import icon from '../../assets/glass-icon.png';
-=======
->>>>>>> feature/CocktailInfo
 
 // List all cocktails by first letter
 // www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 function SearchBar({placeholder= "Search for cocktails", data}) {
 
-<<<<<<< HEAD
     const [filterType, setFilterType] = useState("search all")
 
 
@@ -47,12 +43,6 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
             </>
         }
     }
-=======
-    // const handleClick = (letter) => {
-    //     console.log(letter);
-    //     // TODO letter nog meegeven axios om cocktail lijst te tonen
-    // }
->>>>>>> feature/CocktailInfo
 
     return (
         <div className="search-section-parent-container">
@@ -76,10 +66,7 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
                     {renderBar(filterType)}
                 </div>
                 <AZList/>
-<<<<<<< HEAD
-=======
 
->>>>>>> feature/CocktailInfo
             </div>
         </div>
 
@@ -99,15 +86,5 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
 //     );
 // }
 
-//
-// select geeft dropdown met 4 extra keuzes:
-// ingredients, category, virgin drinks?, glass shape
-//
-// wanneer je een daarvan selecteerd verandert:
-//     het zoekveld in een dropdown.
-//     zoekknop verdwijnt
-//
-// het alfabet blijft staat, waardoor je ook op alfabet kan klikken
-// en elke letter toont bijbehorende lijst aan.
 
 export default SearchBar;
