@@ -1,7 +1,8 @@
-import './SearchBar.css'
+import './SearchBar.css';
 import axios from 'axios';
 import AZList from "../AZList/AZList.jsx";
 import React, { useState } from 'react';
+// import icon from '../../assets/glass-icon.png';
 
 // List all cocktails by first letter
 // www.thecocktaildb.com/api/json/v1/1/search.php?f=a
@@ -23,8 +24,10 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
         if (filterTypeValue === "cocktails" || filterTypeValue === "search all") {
             console.log("AAA")
             return <>
-                <input type="text" placeholder="search for cocktails"/>
-                <div className="search-magnify-icon">searchicon</div>
+                {/*<div className="searchbar-box">*/}
+                    <input type="text" placeholder="search for cocktails"/>
+                {/*    <img src={icon} alt="magnifying-glass"/>*/}
+                {/*</div>*/}
                 <button className="search-button" onClick={handleClick}>Search</button>
             </>
         }

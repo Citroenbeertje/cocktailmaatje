@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from 'react';
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import './AZList.css'
+import './AZList.css';
 
 
 // List all cocktails by first letter
@@ -32,9 +32,14 @@ function AZList() {
                     </button>
                 ))}
             </div>
-            <div className='drink-list'>
-                {cocktails.map((drink) => <button key={drink.idDrink}>{drink.strDrink}</button>)}
+            <div className='drink-list-parent'>
+                <div className='drink-list'>
+                    {cocktails.map((drink) =>
+                        <button
+                            className='clickable-item'
+                            key={drink.idDrink}>{drink.strDrink}</button>)}
 
+                </div>
             </div>
         </div>
     );
