@@ -1,20 +1,18 @@
-function CocktailCard({strDrink, strIngredient1}) {
+function CocktailCard() {
 
     return (
-    <div>
-        <div>Title is {strDrink}</div>
-        <div>MainIngredient is {strIngredient1}</div>
+    <div className='image-info-card'>
+        {/*<img src="" alt=""/>*/}
+        {/*<h1>{strDrink}</h1>*/}
+        {/*<span>{strIngredient1}</span>*/}
+        {/*<span>{strCategory}</span>*/}
+        {/*<span>{strAlcoholic}</span>*/}
+        {/*<span>{strGlass}</span>*/}
     </div>
     );
 }
 
-<<<<<<< Updated upstream
-<CocktailCard strDrink={} strIngredient1={}/>
 
-export default CocktailCard;
-=======
 // <CocktailCard strDrink={} strIngredient1={}/>
 
 export default CocktailCard;
-
->>>>>>> Stashed changes
