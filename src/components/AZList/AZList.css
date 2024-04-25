@@ -1,0 +1,38 @@
+.a-z-list button {
+    background-color: darkolivegreen;
+    padding: 5px;
+    color: #ECECEC;
+    font-size: 1rem;
+}
+
+.a-z-list button:hover {
+    background-color: hotpink;
+    font-weight: bold;
+    color: antiquewhite;
+}
+
+.drink-list-parent {
+    display: flex;
+    justify-content: center;
+    height: 300;
+    flex-wrap: row;
+}
+
+.drink-list {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.clickable-item {
+    padding: 10px;
+    background-color: #263019;
+    color: #ECECEC;
+    font-size: 1rem;
+}
+
+.clickable-item:hover {
+    background-color: hotpink;
+    font-weight: bold;
+    color: antiquewhite;
+}

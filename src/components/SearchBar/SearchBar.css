@@ -1,0 +1,33 @@
+.search {
+}
+
+.search-section{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-search-function {
+    padding-top: 50px;
+    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    border: 1px solid blue;
+}
+
+/*img {*/
+/*    width 15px;*/
+/*    height: 15px;*/
+/*    border: 1px solid red;*/
+/*}*/
+
+/*.searchbar-box {*/
+/*    border: 1px solid red;*/
+/*}*/
+
+/*------styling for AZList.jsx-----*/
+.a-z-list {
+    display: flex;
+    justify-content: center;
+    border: 5px solid mediumpurple;
+}

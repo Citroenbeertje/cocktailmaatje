@@ -6,7 +6,7 @@ import axios from 'axios';
 
 // Lookup full cocktail details by id
 // www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
-function CockTailList() {
+function AZList() {
 
     const handleClick = (letter) => {
         console.log(letter);
@@ -24,5 +24,5 @@ function CockTailList() {
     )
 }
 
-export default CockTailList
+export default AZList
 
