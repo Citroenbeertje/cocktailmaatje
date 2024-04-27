@@ -31,4 +31,7 @@
 
 .recipe-specs {
     width: 350px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-self: center;
 }
