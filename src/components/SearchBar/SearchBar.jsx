@@ -2,6 +2,8 @@ import './SearchBar.css';
 import axios from 'axios';
 import AZList from "../AZList/AZList.jsx";
 import React, { useEffect, useState } from 'react';
+import Button from "../Button/Button.jsx";
+
 // import icon from '../../assets/glass-icon.png';
 
 // List all cocktails by first letter
@@ -71,7 +73,7 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
                     <input type="text" placeholder="search for cocktails"/>
                 {/*    <img src={icon} alt="magnifying-glass"/>*/}
                 {/*</div>*/}
-                <button className="search-button" onClick={handleClick}>Search</button>
+                <Button>Search</Button>
             </>
         }
         else if (filterTypeValue === "ingredient"){
