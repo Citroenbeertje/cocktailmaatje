@@ -9,31 +9,62 @@ import React, { useEffect, useState } from 'react';
 
 function SearchBar({placeholder= "Search for cocktails", data}) {
     const [filterType, setFilterType] = useState("search all");
-    const [ingredientOptions, setIngredientOptions] = useState([]);
-    console.log("ingredientOptions", ingredientOptions)
+    const [ingredientOption, setIngredientOption] = useState([]);
+    const [categoryOption, setCategoryOption] = useState([]);
+    const [glassOption, setGlassOption] = useState([]);
+    const [mocktailsOption, setMocktailsOption] = useState([]);
+
     const handleClick = () => {
     };
 
 
     //
     useEffect(() => {
-        const fetchIngredients = async () => {
+        const fetchIngredient = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
             console.log("response", response);
-            setIngredientOptions(response.data.drinks);
+            setIngredientOption(response.data.drinks);
         };
-
-        fetchIngredients();
-        console.log("ingredientOptions", ingredientOptions);
+        fetchIngredient();
+        console.log("ingredientOption", ingredientOption);
     }, [])
-    // // console.log(filterType)
-    //
+
+    useEffect(() => {
+        const fetchCategory = async () => {
+            const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
+            console.log("response", response);
+            setCategoryOption(response.data.drinks);
+        };
+        fetchCategory();
+        console.log("categoryOption", categoryOption);
+    }, [])
+
+    useEffect(() => {
+        const fetchGlass = async () => {
+            const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list');
+            console.log("response", response);
+            setGlassOption(response.data.drinks);
+        };
+        fetchGlass();
+        console.log("glassOption", glassOption);
+    }, [])
+
+    useEffect(() => {
+        const fetchMocktails = async () => {
+            const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list');
+            console.log("response", response);
+            setMocktailsOption(response.data.drinks);
+        };
+        fetchMocktails();
+        console.log("mocktailsOption", mocktailsOption);
+    }, [])
+
 
     // --renderbar functie --
     // rendered conditioneel het tweede deel van de zoekfunctie
     const renderBar = (filterTypeValue) => {
         console.log("filterTypeValue", filterTypeValue)
-        if (filterTypeValue === "cocktails" || filterTypeValue === "search all") {
+        if (filterTypeValue === "search all") {
             console.log("AAA")
             return <>
                 {/*<div className="searchbar-box">*/}
@@ -43,14 +74,50 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
                 <button className="search-button" onClick={handleClick}>Search</button>
             </>
         }
-        else {
+        else if (filterTypeValue === "ingredient"){
             console.log("BBB")
             return <>
                 <select
                     name="secondary-dropdown"
                     id="blabla">
-                    {ingredientOptions.map((ingredient) => {
+                    {ingredientOption.map((ingredient) => {
                         return <option value={ingredient.strIngredient1}>{ingredient.strIngredient1}</option>
+                    })}
+                </select>
+            </>
+        }
+        else if (filterTypeValue === "category"){
+            console.log("ccc")
+            return <>
+                <select
+                    name="secondary-dropdown"
+                    id="blabla">
+                    {categoryOption.map((category) => {
+                        return <option value={category.strCategory}>{category.strCategory}</option>
+                    })}
+                </select>
+            </>
+        }
+        else if (filterTypeValue === "glassType"){
+            console.log("ddd")
+            return <>
+                <select
+                    name="secondary-dropdown"
+                    id="blabla">
+                    {glassOption.map((glassType) => {
+                        return <option value={glassType.strGlass}>{glassType.strGlass}</option>
+                    })}
+                </select>
+            </>
+        }
+        else if (filterTypeValue === "mocktails"){
+            console.log("eeee")
+            return <>
+                <select
+                    name="secondary-dropdown"
+                    id="blabla">
+                    {mocktailsOption.map((mocktails) => {
+                        return <option value={mocktails.strAlcoholic}>{mocktails.strAlcoholic}</option>
                     })}
 
                 </select>
@@ -70,11 +137,10 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
                         onChange={(event) => setFilterType(event.target.value)}
                     >
                         <option value="search all">Search all</option>
-                        <option value="cocktails">Cocktails</option>
-                        <option value="ingredients">Ingredients</option>
-                        <option value="category">Category</option>
-                        <option value="glass type">Glass type</option>
-                        <option value="virgin Drinks">Virgin drinks</option>
+                        <option value="ingredient">Ingredient</option>
+                        <option value="category">Drink category</option>
+                        <option value="glassType">Glass type</option>
+                        <option value="mocktails">Mocktails</option>
                     </select>
 
                     {renderBar(filterType)}
