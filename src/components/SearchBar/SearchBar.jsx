@@ -10,7 +10,7 @@ import Button from "../Button/Button.jsx";
 // www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 function SearchBar({setCocktails}) {
-    const [filterType, setFilterType] = useState("search all");
+    const [filterType, setFilterType] = useState("search cocktails");
     const [ingredientOption, setIngredientOption] = useState([]);
     const [categoryOption, setCategoryOption] = useState([]);
     const [glassOption, setGlassOption] = useState([]);
