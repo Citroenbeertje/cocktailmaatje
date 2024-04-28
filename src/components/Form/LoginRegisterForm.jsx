@@ -1,15 +1,16 @@
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
 import React from "react";
-function Form() {
-    const { register, handleSubmit, formState: { errors }} = useForm();
+import "./LoginRegisterForm.css"
 
+function LoginRegisterForm() {
+    const { register, handleSubmit, formState: { errors }} = useForm({ mode: 'onBlur' });
     function handleFormSubmit(data) {
-    }
+        console.log('errors', errors);
+        console.log('data', data);
+    };
 
-    console.log('errors', errors);
 
-    console.log()
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)}>
             <label htmlFor="username-field">
@@ -18,16 +19,17 @@ function Form() {
                     type="text"
                     id="username-field"
                     {...register("username", {
-                        required: "Please enter username",
-                        minlength: {
-                            value: 3,
-                            message: "Username must contain at least 4 characters"
+                        required: {
+                            value: true,
                         },
-                        // if else dingetje ertussen----------------------------------
+                        minLength: {
+                            value: 5,
+                            message: "Username must contain at least 5 characters"
+                        },
                         maxLength: {
                             value: 25,
-                            message: "Username can not exceed 25 characters"
-                        }
+                            message: "Username cannot exceed 25 characters",
+                        },
                     })}
                 />
                 {errors.username && <p>{errors.username.message}</p>}
@@ -39,10 +41,8 @@ function Form() {
                     type="text"
                     id="email-field"
                     {...register("email", {
-                        maxLength: {
-                            value: 25,
-                            message: "Username can not exceed 25 characters"
-                        }
+                        required: true,
+                        validate: (value) => value.includes('@') || "Please include @ in the email",
                     })}
                 />
                 {errors.email && <p>{errors.email.message}</p>}
@@ -54,7 +54,15 @@ function Form() {
                     type="password"
                     id="password-field"
                     {...register("password", {
-
+                        required: "Password is required",
+                        minLength: {
+                            value: 8,
+                            message: "Password must contain at least 8 characters"
+                        },
+                        pattern: {
+                            value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/,
+                            message: "*Password invalid, please include at least one uppercase letter, one number, and one special character"
+                        }
                     })}
                 />
                 {errors.password && <p>{errors.password.message}</p>}
@@ -66,29 +74,16 @@ function Form() {
                     type="password"
                     id="confirmation-password-field"
                     {...register("confirmation-password", {
-
-
+                        validate: value =>
+                            value === password || "Your passwords do not match, please try again"
                     })}
                 />
+                {errors.confirmationPassword && <p>{errors.confirmationPassword.message}</p>}
             </label>
 
-            <label htmlFor="message-field">
-                Bericht:
-                <textarea
-                    id="message-field"
-                    rows="4"
-                    cols="40"
-                    placeholder="Laat je bericht achter"
-                    {...register("message-content", {
-                        required: true,
-                        minlength: 3,
-                        maxLength: 10,
-                    })}
-                ></textarea>
-            </label>
             <Button type="submit">Submit</Button>
         </form>
     );
 }
 
-export default Form;
+export default LoginRegisterForm;

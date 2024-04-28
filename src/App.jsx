@@ -3,7 +3,8 @@ import './App.css'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DetailCocktailCard from "./components/DetailCocktailCard/DetailCocktailCard.jsx";
 import BigCocktailCard from "./components/BigCocktailCard/BigCocktailCard.jsx";
-import Form from "./components/Form/Form.jsx";
+import Form from "./components/Form/LoginRegisterForm.jsx";
+import LoginRegisterForm from "./components/Form/LoginRegisterForm.jsx";
 function App() {
     return (
         <div className='background'>
@@ -29,10 +30,12 @@ function App() {
 
                 </div>
             </div>
+
             <SearchBar/>
-            <DetailCocktailCard/>
-            <BigCocktailCard/>
-            <Form/>
+            <LoginRegisterForm/>
+            {/*<DetailCocktailCard/>*/}
+            {/*<BigCocktailCard/>*/}
+
         </div>
 );
 }
