@@ -16,11 +16,9 @@ function SearchBar({setCocktails}) {
     const [glassOption, setGlassOption] = useState([]);
     const [mocktailsOption, setMocktailsOption] = useState([]);
     const [searchInput, setSearchInput] = useState("");
-    console.log("searchInput", searchInput);
 
     const handleSearchClick = async () => {
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInput}`);
-        console.log("response", response);
         setCocktails(response.data.drinks);
     };
 
@@ -28,41 +26,33 @@ function SearchBar({setCocktails}) {
     useEffect(() => {
         const fetchIngredient = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
-            console.log("response", response);
             setIngredientOption(response.data.drinks);
         };
         fetchIngredient();
-        console.log("ingredientOption", ingredientOption);
     }, [])
 
     useEffect(() => {
         const fetchCategory = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
-            console.log("response", response);
             setCategoryOption(response.data.drinks);
         };
         fetchCategory();
-        console.log("categoryOption", categoryOption);
     }, [])
 
     useEffect(() => {
         const fetchGlass = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list');
-            console.log("response", response);
             setGlassOption(response.data.drinks);
         };
         fetchGlass();
-        console.log("glassOption", glassOption);
     }, [])
 
     useEffect(() => {
         const fetchMocktails = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list');
-            console.log("response", response);
             setMocktailsOption(response.data.drinks);
         };
         fetchMocktails();
-        console.log("mocktailsOption", mocktailsOption);
     }, [])
 
 
@@ -70,10 +60,7 @@ function SearchBar({setCocktails}) {
     // rendered conditioneel het tweede deel van de zoekfunctie
     const renderBar = (filterTypeValue) => {
         // TODO onnodige fragments weghalen
-        console.log("filterTypeValue", filterTypeValue)
-
         if (filterTypeValue === "search cocktails") {
-            console.log("AAA")
             return <>
                 {/*<div className="searchbar-box">*/}
                     <input type="text"
@@ -87,7 +74,6 @@ function SearchBar({setCocktails}) {
             </>
         }
         else if (filterTypeValue === "ingredient"){
-            console.log("BBB")
             return <>
                 <select
                     name="secondary-dropdown"
@@ -99,7 +85,6 @@ function SearchBar({setCocktails}) {
             </>
         }
         else if (filterTypeValue === "category"){
-            console.log("ccc")
             return <>
                 <select
                     name="secondary-dropdown"
@@ -111,7 +96,6 @@ function SearchBar({setCocktails}) {
             </>
         }
         else if (filterTypeValue === "glassType"){
-            console.log("ddd")
             return <>
                 <select
                     name="secondary-dropdown"
@@ -123,7 +107,6 @@ function SearchBar({setCocktails}) {
             </>
         }
         else if (filterTypeValue === "mocktails"){
-            console.log("eeee")
             return <>
                 <select
                     name="secondary-dropdown"

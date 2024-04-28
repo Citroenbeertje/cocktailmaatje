@@ -7,9 +7,6 @@ function Form() {
     function handleFormSubmit(data) {
     }
 
-    console.log('errors', errors);
-
-    console.log()
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)}>
             <label htmlFor="username-field">
