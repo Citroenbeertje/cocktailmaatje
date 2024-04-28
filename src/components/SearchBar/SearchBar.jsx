@@ -15,13 +15,14 @@ function SearchBar({setCocktails}) {
     const [categoryOption, setCategoryOption] = useState([]);
     const [glassOption, setGlassOption] = useState([]);
     const [mocktailsOption, setMocktailsOption] = useState([]);
-    const [input, setInput] = useState("");
+    const [searchInput, setSearchInput] = useState("");
+    console.log("searchInput", searchInput);
 
-    const handleClick = () => {
+    const handleSearchClick = async () => {
+        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInput}`);
+        console.log("response", response);
+        setCocktails(response.data.drinks);
     };
-
-
-
 
     //
     useEffect(() => {
@@ -70,18 +71,18 @@ function SearchBar({setCocktails}) {
     const renderBar = (filterTypeValue) => {
         console.log("filterTypeValue", filterTypeValue)
 
-        if (filterTypeValue === "search all") {
+        if (filterTypeValue === "search cocktails") {
             console.log("AAA")
             return <>
                 {/*<div className="searchbar-box">*/}
                     <input type="text"
                            placeholder="search for cocktails"
-                           value={input}
-                           onChange={(e) => setInput(e.target.value)}
+                           value={searchInput}
+                           onChange={(e) => setSearchInput(e.target.value)}
                     />
                 {/*    <img src={icon} alt="magnifying-glass"/>*/}
                 {/*</div>*/}
-                <Button>Search</Button>
+                <Button onClick={handleSearchClick}>Search</Button>
             </>
         }
         else if (filterTypeValue === "ingredient"){
@@ -146,7 +147,7 @@ function SearchBar({setCocktails}) {
                         value={filterType}
                         onChange={(event) => setFilterType(event.target.value)}
                     >
-                        <option value="search all">Search all</option>
+                        <option value="search cocktails">Search cocktails</option>
                         <option value="ingredient">Ingredient</option>
                         <option value="category">Drink category</option>
                         <option value="glassType">Glass type</option>
@@ -163,18 +164,6 @@ function SearchBar({setCocktails}) {
 
     )
 }
-
-// function SearchDropdownMain() {
-//     const [filterType, setFilterType] = useState('Ingredients');
-//
-//     const handleChange = (event) => {
-//         setFilterType(event.target.value);
-//     };
-//
-//     return (
-//
-//     );
-// }
 
 
 export default SearchBar;
