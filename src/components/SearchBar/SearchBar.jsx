@@ -16,6 +16,7 @@ function SearchBar({setCocktails}) {
     const [glassOption, setGlassOption] = useState([]);
     const [mocktailsOption, setMocktailsOption] = useState([]);
     const [searchInput, setSearchInput] = useState("");
+    const [selectedIngredient, setSelectedIngredient] = useState("");
 
     const handleSearchClick = async () => {
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInput}`);
@@ -55,6 +56,21 @@ function SearchBar({setCocktails}) {
         fetchMocktails();
     }, [])
 
+    useEffect(() => {
+        // Niets doen wanneer waarde null is
+        //
+        const fetchDrinksByIngredient = async () => {
+            const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`);
+            console.log("response", response)
+            setCocktails(response.data.drinks);
+        }
+
+        if (selectedIngredient !== "") {
+            fetchDrinksByIngredient();
+        }
+
+    }, [selectedIngredient, setCocktails])
+
 
     // --renderbar functie --
     // rendered conditioneel het tweede deel van de zoekfunctie
@@ -74,41 +90,38 @@ function SearchBar({setCocktails}) {
             </>
         }
         else if (filterTypeValue === "ingredient"){
-            return <>
-                <select
-                    name="secondary-dropdown"
-                    id="blabla">
+            return <select
+                        name="secondary-dropdown"
+                        id="blabla"
+                        onChange={(e) => setSelectedIngredient(e.target.value)}
+                        value={selectedIngredient}
+                    >
+                    <option key="make-a-choice" value={""}>---- Choose ingredient ----</option>
                     {ingredientOption.map((ingredient) => {
-                        return <option value={ingredient.strIngredient1}>{ingredient.strIngredient1}</option>
+                        return <option key={ingredient.strIngredient1}  value={ingredient.strIngredient1}>{ingredient.strIngredient1}</option>
                     })}
                 </select>
-            </>
-        }
-        else if (filterTypeValue === "category"){
-            return <>
-                <select
+
+        } else if (filterTypeValue === "category") {
+            return <select
                     name="secondary-dropdown"
                     id="blabla">
                     {categoryOption.map((category) => {
                         return <option value={category.strCategory}>{category.strCategory}</option>
                     })}
                 </select>
-            </>
         }
         else if (filterTypeValue === "glassType"){
-            return <>
-                <select
+            return <select
                     name="secondary-dropdown"
                     id="blabla">
                     {glassOption.map((glassType) => {
                         return <option value={glassType.strGlass}>{glassType.strGlass}</option>
                     })}
                 </select>
-            </>
         }
         else if (filterTypeValue === "mocktails"){
-            return <>
-                <select
+            return <select
                     name="secondary-dropdown"
                     id="blabla">
                     {mocktailsOption.map((mocktails) => {
@@ -116,7 +129,6 @@ function SearchBar({setCocktails}) {
                     })}
 
                 </select>
-            </>
         }
     }
 
