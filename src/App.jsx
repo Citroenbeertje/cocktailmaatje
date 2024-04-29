@@ -3,9 +3,12 @@ import './App.css'
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DetailCocktailCard from "./components/DetailCocktailCard/DetailCocktailCard.jsx";
 import BigCocktailCard from "./components/BigCocktailCard/BigCocktailCard.jsx";
-import Form from "./components/Form/LoginRegisterForm.jsx";
 import LoginRegisterForm from "./components/Form/LoginRegisterForm.jsx";
+import DisplaySearchResults from "./components/DisplaySearchResults/DisplaySearchResults.jsx";
+
 function App() {
+    const [cocktails, setCocktails] = useState([]);
+    console.log("cocktails", cocktails)
     return (
         <div className='background'>
 
@@ -27,11 +30,11 @@ function App() {
                             <li className="header__nav-item"><a href="#" className="header__nav-link">Language</a></li>
                         </nav>
                     </ul>
-
                 </div>
             </div>
 
-            <SearchBar/>
+            <SearchBar setCocktails={setCocktails} />
+            <DisplaySearchResults cocktails={cocktails} />
             <LoginRegisterForm/>
             {/*<DetailCocktailCard/>*/}
             {/*<BigCocktailCard/>*/}

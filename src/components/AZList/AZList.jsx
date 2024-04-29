@@ -3,15 +3,13 @@ import React, { useState } from 'react';
 import SearchBar from "../SearchBar/SearchBar.jsx";
 import './AZList.css';
 
-
 // List all cocktails by first letter
 // www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 // Lookup full cocktail details by id
 // www.thecocktaildb.com/api/json/v1/1/lookup.php?i=11007
-function AZList() {
-    const [cocktails, setCocktails] = useState([]);
-    console.log("cocktails", cocktails);
+function AZList({setCocktails}) {
+
     const handleClick = async (letter) => {
         // console.log(letter);
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`)
@@ -31,15 +29,6 @@ function AZList() {
                         {letter}
                     </button>
                 ))}
-            </div>
-            <div className='drink-list-parent'>
-                <div className='drink-list'>
-                    {cocktails.map((drink) =>
-                        <button
-                            className='clickable-item'
-                            key={drink.idDrink}>{drink.strDrink}</button>)}
-
-                </div>
             </div>
         </div>
     );

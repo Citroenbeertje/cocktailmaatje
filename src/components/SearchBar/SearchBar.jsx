@@ -9,15 +9,18 @@ import Button from "../Button/Button.jsx";
 // List all cocktails by first letter
 // www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
-function SearchBar({placeholder= "Search for cocktails", data}) {
+function SearchBar({setCocktails}) {
     const [filterType, setFilterType] = useState("search all");
     const [ingredientOption, setIngredientOption] = useState([]);
     const [categoryOption, setCategoryOption] = useState([]);
     const [glassOption, setGlassOption] = useState([]);
     const [mocktailsOption, setMocktailsOption] = useState([]);
+    const [input, setInput] = useState("");
 
     const handleClick = () => {
     };
+
+
 
 
     //
@@ -66,11 +69,16 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
     // rendered conditioneel het tweede deel van de zoekfunctie
     const renderBar = (filterTypeValue) => {
         console.log("filterTypeValue", filterTypeValue)
+
         if (filterTypeValue === "search all") {
             console.log("AAA")
             return <>
                 {/*<div className="searchbar-box">*/}
-                    <input type="text" placeholder="search for cocktails"/>
+                    <input type="text"
+                           placeholder="search for cocktails"
+                           value={input}
+                           onChange={(e) => setInput(e.target.value)}
+                    />
                 {/*    <img src={icon} alt="magnifying-glass"/>*/}
                 {/*</div>*/}
                 <Button>Search</Button>
@@ -147,7 +155,7 @@ function SearchBar({placeholder= "Search for cocktails", data}) {
 
                     {renderBar(filterType)}
                 </div>
-                <AZList/>
+                <AZList setCocktails={setCocktails}/>
 
             </div>
         </div>
