@@ -1,0 +1,77 @@
+html, body, #root, .background {
+    height: 100vh;
+}
+
+
+.background {
+    background-color:  #263019;
+    border: 1px solid red;
+}
+.header-section {
+    display: flex;
+    list-style-type: none;
+    background-color:  #263019;
+    margin: 150px 200px 0;
+}
+
+.header-left-logo {
+    border: 1px solid red;
+}
+.header__nav-list {
+    display: flex;
+    list-style-type: none;
+    background-color:  #263019;
+    border: 1px solid red;
+}
+
+
+.header-right {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border: 1px solid red;
+}
+
+li {
+    margin-left: 20px;
+    border: 1px solid red;
+}
+
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    border: 1px solid red;
+
+}
+
+.nav-container a {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #ECECEC;
+    padding: 15px;
+    border: 1px solid red;
+}
+
+nav-container li:active {
+    background-color: cornflowerblue;
+}
+
+.nav-container li:hover {
+    background-color: hotpink;
+}
+
+
+
+h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: 5rem;
+    color: #ECECEC;
+}
+
+h2 {
+    font-family: "Courier Prime", monospace;
+    font-size: 1rem;
+    color: #ECECEC;
+}
