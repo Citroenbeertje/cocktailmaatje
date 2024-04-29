@@ -1,12 +1,9 @@
 import './Button.css'
 
-const Button = ({children}) => {
-    const handleClick = () => {
-        console.log("klikky");
-    };
+const Button = ({children, onClick}) => {
 
     return (
-        <button onClick={handleClick}>{children}</button>
+        <button onClick={onClick}>{children}</button>
     );
 };
 

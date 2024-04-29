@@ -11,9 +11,7 @@ import './AZList.css';
 function AZList({setCocktails}) {
 
     const handleClick = async (letter) => {
-        // console.log(letter);
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${letter}`)
-        console.log("response", response);
         setCocktails(response.data.drinks);
     }
     // TODO letter nog meegeven axios om cocktail lijst te tonen

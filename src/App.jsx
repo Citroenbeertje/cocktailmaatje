@@ -8,7 +8,6 @@ import DisplaySearchResults from "./components/DisplaySearchResults/DisplaySearc
 
 function App() {
     const [cocktails, setCocktails] = useState([]);
-    console.log("cocktails", cocktails)
     return (
         <div className='background'>
 

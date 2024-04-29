@@ -10,128 +10,178 @@ import Button from "../Button/Button.jsx";
 // www.thecocktaildb.com/api/json/v1/1/search.php?f=a
 
 function SearchBar({setCocktails}) {
-    const [filterType, setFilterType] = useState("search all");
+    const [filterType, setFilterType] = useState("search cocktails");
     const [ingredientOption, setIngredientOption] = useState([]);
     const [categoryOption, setCategoryOption] = useState([]);
     const [glassOption, setGlassOption] = useState([]);
     const [mocktailsOption, setMocktailsOption] = useState([]);
-    const [input, setInput] = useState("");
+    const [searchInput, setSearchInput] = useState("");
+    const [selectedIngredient, setSelectedIngredient] = useState("");
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedGlass, setSelectedGlass] = useState("");
+    const [selectedMocktail, setSelectedMocktail] = useState("");
 
-    const handleClick = () => {
+    const handleSearchClick = async () => {
+        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInput}`);
+        setCocktails(response.data.drinks);
     };
-
-
-
 
     //
     useEffect(() => {
-        const fetchIngredient = async () => {
+        const dropdownFetchIngredient = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
-            console.log("response", response);
             setIngredientOption(response.data.drinks);
         };
-        fetchIngredient();
-        console.log("ingredientOption", ingredientOption);
+        dropdownFetchIngredient();
     }, [])
 
     useEffect(() => {
-        const fetchCategory = async () => {
+        const dropdownFetchCategory = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
-            console.log("response", response);
             setCategoryOption(response.data.drinks);
         };
-        fetchCategory();
-        console.log("categoryOption", categoryOption);
+        dropdownFetchCategory();
     }, [])
 
     useEffect(() => {
-        const fetchGlass = async () => {
+        const dropdownFetchGlass = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?g=list');
-            console.log("response", response);
             setGlassOption(response.data.drinks);
         };
-        fetchGlass();
-        console.log("glassOption", glassOption);
+        dropdownFetchGlass();
     }, [])
 
     useEffect(() => {
-        const fetchMocktails = async () => {
+        const dropdownFetchMocktails = async () => {
             const response = await axios.get('https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list');
-            console.log("response", response);
             setMocktailsOption(response.data.drinks);
         };
-        fetchMocktails();
-        console.log("mocktailsOption", mocktailsOption);
+        dropdownFetchMocktails();
     }, [])
+
+
+    useEffect(() => {
+        const fetchDrinksByIngredient = async () => {
+            const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`);
+            console.log("response", response)
+            setCocktails(response.data.drinks);
+        }
+
+        if (selectedIngredient !== "") {
+            fetchDrinksByIngredient();
+        }
+
+    }, [selectedIngredient, setCocktails])
+
+    useEffect(() => {
+        const fetchDrinksByCategory = async () => {
+            const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${selectedCategory}`);
+            console.log("response", response)
+            setCocktails(response.data.drinks);
+        }
+
+        if (selectedCategory !== "") {
+            fetchDrinksByCategory();
+        }
+
+    }, [selectedCategory, setCocktails])
+
+    useEffect(() => {
+        const fetchGlassByCategory = async () => {
+            const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${selectedGlass}`);
+            console.log("response", response)
+            setCocktails(response.data.drinks);
+        }
+
+        if (selectedGlass !== "") {
+            fetchGlassByCategory();
+        }
+
+    }, [selectedGlass, setCocktails])
+
+    useEffect(() => {
+        const fetchDrinksByMocktail = async () => {
+            const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${selectedMocktail}`);
+            console.log("response", response)
+            setCocktails(response.data.drinks);
+        }
+
+        if (selectedCategory !== "") {
+            fetchDrinksByMocktail();
+        }
+
+    }, [selectedMocktail, setCocktails])
+
 
 
     // --renderbar functie --
     // rendered conditioneel het tweede deel van de zoekfunctie
     const renderBar = (filterTypeValue) => {
-        console.log("filterTypeValue", filterTypeValue)
-
-        if (filterTypeValue === "search all") {
-            console.log("AAA")
+        // TODO onnodige fragments weghalen
+        if (filterTypeValue === "search cocktails") {
             return <>
                 {/*<div className="searchbar-box">*/}
                     <input type="text"
                            placeholder="search for cocktails"
-                           value={input}
-                           onChange={(e) => setInput(e.target.value)}
+                           value={searchInput}
+                           onChange={(e) => setSearchInput(e.target.value)}
                     />
                 {/*    <img src={icon} alt="magnifying-glass"/>*/}
                 {/*</div>*/}
-                <Button>Search</Button>
+                <Button onClick={handleSearchClick}>Search</Button>
             </>
         }
         else if (filterTypeValue === "ingredient"){
-            console.log("BBB")
-            return <>
-                <select
-                    name="secondary-dropdown"
-                    id="blabla">
+            return <select
+                        name="secondary-dropdown"
+                        id="blabla"
+                        onChange={(e) => setSelectedIngredient(e.target.value)}
+                        value={selectedIngredient}
+                    >
+                    <option key="ingredient-picker" value={""}>---- Choose ingredient ----</option>
                     {ingredientOption.map((ingredient) => {
-                        return <option value={ingredient.strIngredient1}>{ingredient.strIngredient1}</option>
+                        return <option key={ingredient.strIngredient1}  value={ingredient.strIngredient1}>{ingredient.strIngredient1}</option>
                     })}
                 </select>
-            </>
-        }
-        else if (filterTypeValue === "category"){
-            console.log("ccc")
-            return <>
-                <select
-                    name="secondary-dropdown"
-                    id="blabla">
+
+        } else if (filterTypeValue === "category"){
+            return <select
+                        name="secondary-dropdown"
+                        id="blabla"
+                        onChange={(e) => setSelectedCategory(e.target.value)}
+                        value={selectedCategory}
+                    >
+                    <option key="category-picker" value={""}>--- Choose category of drink ---</option>
                     {categoryOption.map((category) => {
-                        return <option value={category.strCategory}>{category.strCategory}</option>
+                        return <option key={category.strCategory} value={category.strCategory}>{category.strCategory}</option>
                     })}
                 </select>
-            </>
         }
         else if (filterTypeValue === "glassType"){
-            console.log("ddd")
-            return <>
-                <select
-                    name="secondary-dropdown"
-                    id="blabla">
-                    {glassOption.map((glassType) => {
-                        return <option value={glassType.strGlass}>{glassType.strGlass}</option>
-                    })}
-                </select>
-            </>
+            return <select
+                name="secondary-dropdown"
+                id="blabla"
+                onChange={(e) => setSelectedGlass(e.target.value)}
+                value={selectedGlass}
+                >
+                <option key="glass-picker" value={""}>---- Choose glass type ----</option>
+                {glassOption.map((glassType) => {
+                    return <option key={glassType.strGlass} value={glassType.strGlass}>{glassType.strGlass}</option>
+                })}
+            </select>
         }
-        else if (filterTypeValue === "mocktails"){
-            console.log("eeee")
-            return <>
-                <select
+        else if (filterTypeValue === "mocktails") {
+            return <select
                     name="secondary-dropdown"
-                    id="blabla">
+                    id="blabla"
+                    onChange={(e) => setSelectedMocktail(e.target.value)}
+                    value={selectedMocktail}
+                    >
                     {mocktailsOption.map((mocktails) => {
-                        return <option value={mocktails.strAlcoholic}>{mocktails.strAlcoholic}</option>
+                        return <option key={mocktails.strAlcoholic} value={mocktails.strAlcoholic}>{mocktails.strAlcoholic}</option>
                     })}
 
                 </select>
-            </>
         }
     }
 
@@ -146,9 +196,9 @@ function SearchBar({setCocktails}) {
                         value={filterType}
                         onChange={(event) => setFilterType(event.target.value)}
                     >
-                        <option value="search all">Search all</option>
+                        <option value="search cocktails">Search cocktails</option>
                         <option value="ingredient">Ingredient</option>
-                        <option value="category">Drink category</option>
+                        <option value="category">Category of drink</option>
                         <option value="glassType">Glass type</option>
                         <option value="mocktails">Mocktails</option>
                     </select>
@@ -163,18 +213,6 @@ function SearchBar({setCocktails}) {
 
     )
 }
-
-// function SearchDropdownMain() {
-//     const [filterType, setFilterType] = useState('Ingredients');
-//
-//     const handleChange = (event) => {
-//         setFilterType(event.target.value);
-//     };
-//
-//     return (
-//
-//     );
-// }
 
 
 export default SearchBar;
