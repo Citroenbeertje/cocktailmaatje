@@ -2,9 +2,17 @@ import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
 import React from "react";
 import "./LoginRegisterForm.css"
+import TextField from "./TextField.jsx";
 
 function LoginRegisterForm() {
-    const { register, handleSubmit, formState: { errors }} = useForm({ mode: 'onBlur' });
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        watch
+    } = useForm({ mode: 'onBlur' });
+
+    const password = watch("password");
     function handleFormSubmit(data) {
         console.log('errors', errors);
         console.log('data', data);
@@ -13,31 +21,32 @@ function LoginRegisterForm() {
 
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)}>
-            <label htmlFor="username-field">
-                Username:
-                <input
-                    type="text"
-                    id="username-field"
-                    {...register("username", {
-                        required: {
-                            value: true,
-                        },
-                        minLength: {
-                            value: 5,
-                            message: "Username must contain at least 5 characters"
-                        },
-                        maxLength: {
-                            value: 25,
-                            message: "Username cannot exceed 25 characters",
-                        },
-                    })}
-                />
-                {errors.username && <p>{errors.username.message}</p>}
-            </label>
+            <TextField
+                inputId="username-field"
+                inputName="username"
+                register={register}
+                inputLabel={"Username:"}
+                errors={errors}
+                validationRules={{
+                    required: {
+                        value: true,
+                        message: "Username is required"
+                    },
+                    minLength: {
+                        value: 5,
+                        message: "Username must contain at least 5 characters"
+                    },
+                    maxLength: {
+                        value: 25,
+                        message: "Username cannot exceed 25 characters",
+                    },
+                }}
+            />
 
             <label htmlFor="email-field">
                 Email:
                 <input
+                    className="email-input"
                     type="text"
                     id="email-field"
                     {...register("email", {
@@ -51,13 +60,14 @@ function LoginRegisterForm() {
             <label htmlFor="password-field">
                 Password:
                 <input
+                    className="password-input"
                     type="password"
                     id="password-field"
                     {...register("password", {
                         required: "Password is required",
                         minLength: {
                             value: 8,
-                            message: "Password must contain at least 8 characters"
+                            message: "Password must contain at least 8 characters, please include at least one uppercase letter, one number, and one special character"
                         },
                         pattern: {
                             value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/,
@@ -71,10 +81,11 @@ function LoginRegisterForm() {
             <label htmlFor="confirmation-password-field">
                 Confirmation password:
                 <input
+                    className="confirmation-password-input"
                     type="password"
                     id="confirmation-password-field"
-                    {...register("confirmation-password", {
-                        validate: value =>
+                    {...register("confirmationPassword", {
+                        validate: (value) =>
                             value === password || "Your passwords do not match, please try again"
                     })}
                 />
