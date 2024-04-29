@@ -3,6 +3,7 @@ import Button from "../Button/Button.jsx";
 import React from "react";
 import "./LoginRegisterForm.css"
 import TextField from "./TextField.jsx";
+import PasswordField from "./PasswordField.jsx";
 
 function LoginRegisterForm() {
     const {
@@ -25,7 +26,7 @@ function LoginRegisterForm() {
                 inputId="username-field"
                 inputName="username"
                 register={register}
-                inputLabel={"Username:"}
+                inputLabel={"Username"}
                 errors={errors}
                 validationRules={{
                     required: {
@@ -43,54 +44,57 @@ function LoginRegisterForm() {
                 }}
             />
 
-            <label htmlFor="email-field">
-                Email:
-                <input
-                    className="email-input"
-                    type="text"
-                    id="email-field"
-                    {...register("email", {
-                        required: true,
-                        validate: (value) => value.includes('@') || "Please include @ in the email",
-                    })}
-                />
-                {errors.email && <p>{errors.email.message}</p>}
-            </label>
+            <TextField
+                inputId="email-field"
+                inputName="email-input"
+                register={register}
+                inputLabel={"Email"}
+                errors={errors}
+                validationRules={{
+                    required: {
+                        value: true,
+                        message: "Email is required"
+                    },
+                    validate: {
+                        value: (value) => value.includes('@'),
+                        message: "Please include @ in the email"
+                    },
+                }}
+            />
 
-            <label htmlFor="password-field">
-                Password:
-                <input
-                    className="password-input"
-                    type="password"
-                    id="password-field"
-                    {...register("password", {
-                        required: "Password is required",
-                        minLength: {
-                            value: 8,
-                            message: "Password must contain at least 8 characters, please include at least one uppercase letter, one number, and one special character"
-                        },
-                        pattern: {
-                            value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/,
-                            message: "*Password invalid, please include at least one uppercase letter, one number, and one special character"
-                        }
-                    })}
-                />
-                {errors.password && <p>{errors.password.message}</p>}
-            </label>
+            <PasswordField
+                inputId="password-field"
+                inputName="password-input"
+                register={register}
+                inputLabel={"Choose password"}
+                errors={errors}
+                validationRules={{
+                    required: {
+                        value: true,
+                        message: "Password is required"
+                    },
+                    minLength: {
+                        value: 8,
+                        message: "Password must contain at least 8 characters, please include at least one uppercase letter, one number, and one special character"
+                    },
+                    pattern: {
+                        value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/,
+                        message: "*Password invalid, please include at least one uppercase letter, one number, and one special character"
+                    }
+                }}
+            />
 
-            <label htmlFor="confirmation-password-field">
-                Confirmation password:
-                <input
-                    className="confirmation-password-input"
-                    type="password"
-                    id="confirmation-password-field"
-                    {...register("confirmationPassword", {
-                        validate: (value) =>
-                            value === password || "Your passwords do not match, please try again"
-                    })}
-                />
-                {errors.confirmationPassword && <p>{errors.confirmationPassword.message}</p>}
-            </label>
+            <PasswordField
+                inputId="password-confirmation-field"
+                inputName="password-confirmation-input"
+                register={register}
+                inputLabel={"Confirm Password"}
+                errors={errors}
+                validationRules={{
+                    validate: (value) =>
+                        value === password || "Your passwords do not match, please try again"
+                }}
+            />
 
             <Button type="submit">Submit</Button>
         </form>

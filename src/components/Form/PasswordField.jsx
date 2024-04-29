@@ -1,12 +1,12 @@
 import React from "react";
 
-function TextField ({inputName, inputLabel, inputId, validationRules, register, errors }) {
+function PasswordField ({inputName, inputLabel, inputId, validationRules, register, errors }) {
     return (
-        <label htmlFor="text-field">
+        <label htmlFor="password-field">
             {inputLabel}
             <input
-                className="text-input"
-                type="text"
+                className="password-input"
+                type="password"
                 id={inputId}
                 {...register(inputName, validationRules)}
             />
@@ -15,4 +15,4 @@ function TextField ({inputName, inputLabel, inputId, validationRules, register, 
     )
 }
 
-export default TextField;
+export default PasswordField;
