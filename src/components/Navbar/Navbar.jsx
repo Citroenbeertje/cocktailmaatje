@@ -1,28 +1,21 @@
 import React from "react"
 import './Navbar.css'
+import { Link} from "react-router-dom";
 
 function Navbar() {
 
     return (
-        <ul className="header__nav-list">
-            <nav className="nav-container">
-                <li>
-                    <a href="/home" className="header__nav-link">Home</a>
-                </li>
-                <li>
-                    <a href="/about" className="header__nav-link">About</a>
-                </li>
-                <li>
-                    <a href="/favorites" className="header__nav-link">Favorites</a>
-                </li>
-                <li>
-                    <a href="login" className="header__nav-link">Login</a>
-                </li>
-                <li>
-                    <a href="register" className="header__nav-link">Register</a>
-                </li>
-            </nav>
-        </ul>
+
+        <nav className="nav-container">
+            <ul className="header__nav-list">
+                <li><Link to="/" className="header__nav-link">Home</Link></li>
+                <li><Link to="/about" className="header__nav-link">About</Link></li>
+                <li><Link to="/favorites" className="header__nav-link">Favorites</Link></li>
+                <li><Link to="/login" className="header__nav-link">Login</Link></li>
+                <li><Link to="/register" className="header__nav-link">Register</Link></li>
+            </ul>
+        </nav>
+
     )
 
 }
