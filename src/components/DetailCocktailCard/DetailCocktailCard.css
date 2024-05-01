@@ -1,36 +1,52 @@
-.parent-container {
-    border: 3px solid greenyellow;
-    height: 500px;
+.lexend-deca-<uniquifier> {
+                  font-family: "Lexend Deca", sans-serif;
+                  font-optical-sizing: auto;
+                  font-style: normal;
+              }
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .cocktail-card {
     display: flex;
-    justify-content: space-around;
-    justify-content: center;
-    border: 2px solid navajowhite;
-    width: 350px;
-    heigth: 150px;
-    background-color: deeppink;
+    width: 465px;
+    height: 205px;
+    border-radius: 10px;
+    background-color: #B5C1A5;
+    border: 2px solid rebeccapurple;
 }
 
-         /*------ left image ------*/
-.image-side {
-    border: 1px solid black;
+/*------ left image ------*/
+.image-container {
+    /*border: 2px solid rebeccapurple;*/
 }
+
 .detail-image {
-    width: 120px;
-    height: 120px;
-}
-       /*----------- right text ---------*/
-.information-side {
-    border: 1px solid black;
-    padding: 10px;
-    color: blanchedalmond;
+    width: 170px;
+    height: 170px;
+    border-radius: 20px;
+    padding: 15px;
 }
 
+/*----------- text ---------*/
 .title-detail-card {
+    font-family: "Bebas Neue", sans-serif;
     font-weight: bold;
-    padding: 5px;
-    font-size: 1.25rem;
+    font-size: 2rem;
+    color: #263019;
 }
+
+.information-side {
+    font-family:  "Lexend Deca", sans-serif;
+    padding: 15px;
+    color: #263019;
+    line-height: 1.5;
+    /*border: 2px solid rebeccapurple;*/
+    width: 65%;
+
+}
+
 
