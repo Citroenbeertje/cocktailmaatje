@@ -1,37 +1,7 @@
 
+
 .recipe-card-parent {
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    height: 400px;
+    background-color: #B5C1A5;
+    height: 230px;
     border: 3px solid orange;
-}
-
-.title-recipe-card {
-
-}
-
-.big-card {
-    display: flex;
-    border: 3px solid orange;
-}
-
-.big-image {
-    width: 200px;
-    height: 200px;
-}
-
-.image-info-block {
-    display: flex;
-}
-
-.recipe-text-block {
-    display: flex;
-}
-
-.recipe-specs {
-    width: 350px;
-    font-size: 1.5rem;
-    font-weight: bold;
-    align-self: center;
 }
