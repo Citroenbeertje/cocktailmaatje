@@ -1,6 +1,5 @@
 
 import './RecipeCard.css'
-import DetailCocktailCard from "../DetailCocktailCard/DetailCocktailCard.jsx";
 function RecipeCard() {
     const drinks = {
         strDrink: 'Grizzly Bear',
@@ -11,14 +10,33 @@ function RecipeCard() {
     };
 
     return (
-        <div className="recipe-card-parent">
-            <DetailCocktailCard/>
-                <div className="recipe-text-measurement">
-                    Measure</div>
-                <div className="recipe-text-instructions">
-                    Pour all ingredients into a cocktail shaker, mix and serve over ice into a chilled glass.</div>
-        </div>
+        <div className="recipe-card-container">
+            <div className="upper-recipe">
+                <div className="recipe-image-container">
+                    <img className="cocktail-image"
+                         src="https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg"
+                         alt="Cocktail Image"
+                    />
+                </div>
+                <div className="title-ingredient-textbox">
+                    <div className="title-recipe-card">Grizzly Bear</div>
+                    <div className="">Ingredients</div>
+                    <div className="">Gin{drinks.strCategory}</div>
+                    <div className="">Grand Marnier{drinks.strCategory}</div>
+                    <div className="">Lemon Juice{drinks.strCategory}</div>
+                    <div className="">Grand Marnier{drinks.strCategory}</div>
+                    <div className="">Lemon Juice{drinks.strCategory}</div>
+                </div>
+            </div>
 
+
+            <div>
+                <span>Instructions</span>
+                <span>non-alcoholic</span>
+                <span>glass shape</span>
+                <div>Shake all the ingredients in a cocktail shaker and ice then strain in a cold glass.1</div>
+            </div>
+        </div>
     );
 }
 

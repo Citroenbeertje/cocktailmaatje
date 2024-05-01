@@ -1,7 +1,58 @@
+.lexend-deca-<uniquifier> {
+                  font-family: "Lexend Deca", sans-serif;
+                  font-optical-sizing: auto;
+                  font-style: normal;
+              }
 
-
-.recipe-card-parent {
-    background-color: #B5C1A5;
-    height: 230px;
-    border: 3px solid orange;
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
+
+.recipe-card-container {
+    background-color: #B5C1A5;
+    height: 440px;
+    width: 500px;
+    border: 3px solid cornflowerblue;
+    border-radius: 10px;
+
+}
+
+.upper-recipe {
+    display: flex;
+}
+/*------ left image ------*/
+.recipe-image-container {
+    /*border: 2px solid rebeccapurple;*/
+}
+
+.cocktail-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/*----------- text ---------*/
+.title-ingredient-textbox {
+    display: flex;
+    font-family: "Lexend Deca", sans-serif;
+    line-height: 1.5;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    border: 2px solid rebeccapurple;
+}
+.title-recipe-card {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #263019;
+}
+
+/*div {*/
+/*    border: 2px solid rebeccapurple;*/
+/*}*/
+
+
