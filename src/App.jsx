@@ -20,27 +20,29 @@ function App() {
     return (
         <div className='background'>
             <div className='header-section'>
-                <div className='header-left-logo'>
+                <div className='leftheader-logo'>
                     <h1>Cocktailmaatje</h1>
                     <h2>Cocktail recepten en inspiratie</h2>
                 </div>
-                <div className="header-right">
+                <div className="rightheader-navbar">
                     <Navbar/>
-                    <Routes>
-                        <Route path="/" element={<Home/>} />
-                        <Route path="/about" element={<About/>} />
-                        <Route path="/favorites" element={<Favorites/>} />
-                        <Route path="/login" element={<Login/>} />
-                        <Route path="/register" element={<Register/>} />
-                        <Route path="*" element={<NotFound/>} />
-                    </Routes>
                 </div>
             </div>
+            <Routes>
+                <Route path="/" element={<Home/>} />
+                <Route path="/about" element={<About/>} />
+                <Route path="/favorites" element={<Favorites/>} />
+                <Route path="/login" element={<Login/>} />
+                <Route path="/register" element={<Register/>} />
+                <Route path="*" element={<NotFound/>} />
+            </Routes>
             <SearchBar setCocktails={setCocktails} />
             <DisplaySearchResults cocktails={cocktails} />
             <LoginRegisterForm/>
+
             <DetailCocktailCard/>
             <BigCocktailCard/>
+
         </div>
     );
 }

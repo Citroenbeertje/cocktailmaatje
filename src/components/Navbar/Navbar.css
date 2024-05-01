@@ -2,6 +2,26 @@ html, body, #root, .background {
     height: 100vh;
 }
 
+nav ul a,
+nav ul a:visited {
+    /*display: flex;*/
+    background-color:  #263019;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    color: #ECECEC;
+    padding: 15px;
+    text-decoration: none;
+}
+
+/*navbar js--------------*/
+.default-link {
+    border-bottom: 1px solid transparent;
+}
+
+.active-link {
+    border-bottom: 5px solid greenyellow;
+}
+
 
 .background {
     background-color:  #263019;
@@ -14,54 +34,43 @@ html, body, #root, .background {
     margin: 150px 200px 0;
 }
 
-.header-left-logo {
-    border: 1px solid red;
-}
-.header__nav-list {
+
+.default-link-list {
     display: flex;
     list-style-type: none;
     background-color:  #263019;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
-
-.header-right {
+.leftheader-logo {
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
+}
+
+.rightheader-navbar {
+    width: 100%;
+    /*border: 1px solid red;*/
 }
 
 li {
-    margin-left: 20px;
-    border: 1px solid red;
+    padding: 15px;
+    /*border: 1px solid red;*/
 }
 
 
 .nav-container {
     width: 100%;
     display: flex;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
+    justify-content: flex-end;
 
 }
 
-.nav-container a {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: #ECECEC;
-    padding: 15px;
-    border: 1px solid red;
-}
 
-nav-container li:active {
-    background-color: cornflowerblue;
-}
 
 .nav-container li:hover {
-    background-color: hotpink;
+    background-colorcolor: greenyellow;
 }
-
 
 
 h1 {
