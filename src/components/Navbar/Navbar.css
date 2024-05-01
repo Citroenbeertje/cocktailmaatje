@@ -2,6 +2,7 @@ html, body, #root, .background {
     height: 100vh;
 }
 
+
 nav ul a,
 nav ul a:visited {
     /*display: flex;*/
@@ -19,7 +20,7 @@ nav ul a:visited {
 }
 
 .active-link {
-    border-bottom: 5px solid greenyellow;
+    border-bottom: 4px solid darkseagreen;
 }
 
 
@@ -67,9 +68,10 @@ li {
 }
 
 
+.default-link:hover {
+    border-bottom: 4px solid darkseagreen;
+    background-color: olive;
 
-.nav-container li:hover {
-    background-colorcolor: greenyellow;
 }
 
 
