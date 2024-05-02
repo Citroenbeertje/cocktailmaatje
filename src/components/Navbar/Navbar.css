@@ -8,7 +8,7 @@ nav ul a:visited {
     /*display: flex;*/
     background-color:  #263019;
     font-family: "Bebas Neue", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: #ECECEC;
     padding: 15px;
     text-decoration: none;
@@ -75,13 +75,13 @@ li {
 }
 
 
-h1 {
+.cocktailmaatje-title {
     font-family: "DM Serif Display", serif;
     font-size: 5rem;
     color: #ECECEC;
 }
 
-h2 {
+.sub-title {
     font-family: "Courier Prime", monospace;
     font-size: 1rem;
     color: #ECECEC;
