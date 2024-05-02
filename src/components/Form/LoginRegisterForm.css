@@ -1,0 +1,27 @@
+form {
+    color: #ECECEC;
+    padding: 10px 30px;
+    border: 2px solid rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 400px;
+}
+
+label {
+    /*border: 2px solid yellow;*/
+    margin: 8px;
+}
+
+.text-input, .password-input {
+
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-size: 0.75rem;
+    display: block;
+    margin: 5px auto;
+    width: 100%;
+    background-color: #F9FFF0;
+}

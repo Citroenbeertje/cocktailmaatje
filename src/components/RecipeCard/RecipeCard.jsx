@@ -12,7 +12,7 @@ function RecipeCard() {
     return (
         <div className="recipe-card-container">
             <div className="upper-recipe">
-                <div className="recipe-image-container">
+                <div className="cocktail-image-container">
                     <img className="cocktail-image"
                          src="https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg"
                          alt="Cocktail Image"
@@ -30,11 +30,15 @@ function RecipeCard() {
             </div>
 
 
-            <div>
-                <span>Instructions</span>
-                <span>non-alcoholic</span>
-                <span>glass shape</span>
-                <div>Shake all the ingredients in a cocktail shaker and ice then strain in a cold glass.1</div>
+            <div className="lower-textbox">
+                <div className="recipe-specifics">
+                    <span className="specifics">Instructions</span>
+                    <div className="mocktail-glassshape">
+                    <span className="specifics">non-alcoholic</span>
+                    <span className="specifics">glass shape</span>
+                    </div>
+                </div>
+                <div className="instructions">Shake all the ingredients in a cocktail shaker and ice then strain in a cold glass.1</div>
             </div>
         </div>
     );
