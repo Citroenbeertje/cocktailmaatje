@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
 import React from "react";
+import "LoginRegisterForm.css"
 function Form() {
     const { register, handleSubmit, formState: { errors }} = useForm();
 
@@ -69,20 +70,6 @@ function Form() {
                 />
             </label>
 
-            <label htmlFor="message-field">
-                Bericht:
-                <textarea
-                    id="message-field"
-                    rows="4"
-                    cols="40"
-                    placeholder="Laat je bericht achter"
-                    {...register("message-content", {
-                        required: true,
-                        minlength: 3,
-                        maxLength: 10,
-                    })}
-                ></textarea>
-            </label>
             <Button type="submit">Submit</Button>
         </form>
     );

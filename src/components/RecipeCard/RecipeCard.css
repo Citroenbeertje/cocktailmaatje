@@ -10,9 +10,14 @@
     font-style: normal;
 }
 
+body {
+    font-family: "Lexend Deca", sans-serif;
+    color: #263019;
+}
+
 .recipe-card-container {
     background-color: #B5C1A5;
-    height: 440px;
+    height: 380px;
     width: 500px;
     border: 3px solid cornflowerblue;
     border-radius: 10px;
@@ -23,8 +28,9 @@
     display: flex;
 }
 /*------ left image ------*/
-.recipe-image-container {
-    /*border: 2px solid rebeccapurple;*/
+.cocktail-image-container {
+    border: 2px solid rebeccapurple;
+    width: 100%;
 }
 
 .cocktail-image {
@@ -36,23 +42,47 @@
 
 /*----------- text ---------*/
 .title-ingredient-textbox {
+    width: 100%;
     display: flex;
-    font-family: "Lexend Deca", sans-serif;
     line-height: 1.5;
     flex-direction: column;
     justify-content: center;
-    padding: 15px;
+
     border: 2px solid rebeccapurple;
 }
 .title-recipe-card {
     font-family: "Bebas Neue", sans-serif;
     font-weight: bold;
     font-size: 2rem;
+    padding-bottom: 10px;
+    padding-top: -10px;
     color: #263019;
 }
 
-/*div {*/
-/*    border: 2px solid rebeccapurple;*/
-/*}*/
+.lower-textbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.recipe-specifics {
+    border: 2px solid darkslategrey;
+    display: flex;
+    justify-content: space-around;
+}
 
+.specifics {
+     padding: 5px 10px;
+ }
 
+.mocktail-glassshape {
+    width: 100%;
+    border: 3px solid royalblue;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bolder;
+}
+
+.instructions {
+    padding: 10px 15px;
+    font-family: "Bebas Neue", sans-serif;
+}
