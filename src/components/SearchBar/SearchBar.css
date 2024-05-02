@@ -26,8 +26,3 @@
 /*}*/
 
 /*------styling for AZList.jsx-----*/
-.a-z-list {
-    display: flex;
-    justify-content: center;
-    border: 5px solid mediumpurple;
-}
