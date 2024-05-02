@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from 'react';
 import SearchBar from "../SearchBar/SearchBar.jsx";
-import './AZList.css';
+import "./AZList+DisplaySearchResults.css";
 
 // List all cocktails by first letter
 // www.thecocktaildb.com/api/json/v1/1/search.php?f=a
@@ -23,7 +23,7 @@ function AZList({setCocktails}) {
         <div>
             <div className='a-z-list'>
                 {"A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ").map((letter) => (
-                    <button key={letter} onClick={() => handleClick(letter.toLowerCase())}>
+                    <button className="letter-button" key={letter} onClick={() => handleClick(letter.toLowerCase())}>
                         {letter}
                     </button>
                 ))}

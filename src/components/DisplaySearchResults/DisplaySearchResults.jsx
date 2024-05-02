@@ -1,4 +1,3 @@
-
 function DisplaySearchResults ({cocktails}) {
 
     const renderDrinkList = () => {
