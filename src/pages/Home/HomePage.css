@@ -1,0 +1,15 @@
+.header-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 600;
+    justify-content: center;
+    margin: 25px auto;
+    /*border: 2px solid magenta;*/
+
+}
+
+.cocktail-image-group {
+    width: 280px;
+    height: 375px;
+}
