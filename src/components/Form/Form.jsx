@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
 import React from "react";
-import "LoginRegisterForm.css"
+import "src/components/Form/Form.css"
 function Form() {
     const { register, handleSubmit, formState: { errors }} = useForm();
 

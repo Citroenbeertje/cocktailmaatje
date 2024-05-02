@@ -1,11 +1,11 @@
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
 import React from "react";
-import "./LoginRegisterForm.css"
+import "./Form.css"
 import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
 
-function LoginRegisterForm() {
+function RegisterForm() {
     const {
         register,
         handleSubmit,
@@ -18,6 +18,7 @@ function LoginRegisterForm() {
         console.log('errors', errors);
         console.log('data', data);
     };
+
 
 
     return (
@@ -101,4 +102,4 @@ function LoginRegisterForm() {
     );
 }
 
-export default LoginRegisterForm;
+export default RegisterForm;

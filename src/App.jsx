@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import DetailCocktailCard from "./components/DetailCocktailCard/DetailCocktailCard.jsx";
 import RecipeCard from "./components/RecipeCard/RecipeCard.jsx";
-import LoginRegisterForm from "./components/Form/LoginRegisterForm.jsx";
+import RegisterForm from "./components/Form/RegisterForm.jsx";
 import DisplaySearchResults from "./components/DisplaySearchResults/DisplaySearchResults.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 
@@ -36,7 +36,6 @@ function App() {
                 <Route path="/register" element={<Register/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>
-            <LoginRegisterForm/>
             <DetailCocktailCard/>
             <RecipeCard/>
 
