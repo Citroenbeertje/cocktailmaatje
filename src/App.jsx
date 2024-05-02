@@ -8,7 +8,7 @@ import RegisterForm from "./components/Form/RegisterForm.jsx";
 import DisplaySearchResults from "./components/DisplaySearchResults/DisplaySearchResults.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 
-import Home from "./pages/Home/Home.jsx";
+import HomePage from "./pages/Home/HomePage.jsx";
 import About from "./pages/About/About.jsx";
 import Favorites from "./pages/Favorites/Favorites.jsx";
 import Login from "./pages/Login/Login.jsx";
@@ -21,15 +21,15 @@ function App() {
         <div className='background'>
             <div className='header-section'>
                 <div className='leftheader-logo'>
-                    <h1>Cocktailmaatje</h1>
-                    <h2>Cocktail recepten en inspiratie</h2>
+                    <h1 className="cocktailmaatje-title">Cocktailmaatje</h1>
+                    <h2 className="sub-title">Cocktailmaatje: Your assist for recipes and inspiration</h2>
                 </div>
                 <div className="rightheader-navbar">
                     <Navbar/>
                 </div>
             </div>
             <Routes>
-                <Route path="/" element={<Home/>} />
+                <Route path="/" element={<HomePage/>} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/favorites" element={<Favorites/>} />
                 <Route path="/login" element={<Login/>} />

@@ -1,7 +1,7 @@
 form {
     color: #ECECEC;
     padding: 10px 30px;
-    border: 2px solid rebeccapurple;
+    /*border: 2px solid rebeccapurple;*/
     display: flex;
     flex-direction: column;
     width: 250px;
