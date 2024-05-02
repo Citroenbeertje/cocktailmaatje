@@ -13,8 +13,8 @@ label {
     margin: 8px;
 }
 
-input {
-    width: 200px;
+.text-input, .password-input {
+
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -22,7 +22,6 @@ input {
     font-size: 0.75rem;
     display: block;
     margin: 5px auto;
-    /*margin: 15px auto;*/
     width: 100%;
-
+    background-color: #F9FFF0;
 }
