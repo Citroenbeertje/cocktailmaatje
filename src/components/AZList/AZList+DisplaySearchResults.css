@@ -1,15 +1,24 @@
-.a-z-list button {
-    background-color: darkolivegreen;
+.a-z-list {
+    display: flex;
+    justify-content: center;
+    /*border: 5px solid mediumpurple;*/
+}
+
+.letter-button {
+    background-color: #263019;
     padding: 5px;
     color: #ECECEC;
     font-size: 1rem;
 }
 
-.a-z-list button:hover {
+.letter-button:hover {
     background-color: hotpink;
     font-weight: bold;
     color: antiquewhite;
+    font-size: 1rem;
 }
+
+/*------------displaysearchresults-CSS*/
 
 .drink-list-parent {
     display: flex;
