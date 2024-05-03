@@ -1,0 +1,26 @@
+
+.detail
+
+.container-heart {
+    display: inline-flex;
+    justify-content: flex-end;
+    border: 2px solid red;
+}
+
+
+.icon-heart {
+    width: 33px;
+    height: 33px;
+    background-color: #B5C1A5;
+    cursor: pointer;
+}
+
+#heart-solid {
+    fill: darkred;
+}
+#heart-outline {
+    fill: slategrey;
+}
+#heart-outline:hover {
+    fill: orangered;
+}
