@@ -18,7 +18,7 @@ body {
 .recipe-card-container {
     background-color: #B5C1A5;
     height: 380px;
-    width: 500px;
+    width: 550px;
     border: 3px solid cornflowerblue;
     border-radius: 10px;
 
@@ -29,8 +29,8 @@ body {
 }
 /*------ left image ------*/
 .cocktail-image-container {
-    border: 2px solid rebeccapurple;
-    width: 100%;
+    /*border: 2px solid rebeccapurple;*/
+    width: 45%;
 }
 
 .cocktail-image {
@@ -42,13 +42,13 @@ body {
 
 /*----------- text ---------*/
 .title-ingredient-textbox {
-    width: 100%;
+    width: 55%;
     display: flex;
     line-height: 1.5;
     flex-direction: column;
     justify-content: center;
-
-    border: 2px solid rebeccapurple;
+    margin: 15px;
+    /*border: 2px solid rebeccapurple;*/
 }
 .title-recipe-card {
     font-family: "Bebas Neue", sans-serif;
@@ -57,6 +57,13 @@ body {
     padding-bottom: 10px;
     padding-top: -10px;
     color: #263019;
+}
+
+.title-heart-container {
+    display: flex;
+    width: 100%;
+    /*border: 3px solid olive;*/
+    justify-content: space-between;
 }
 
 .lower-textbox {
@@ -85,4 +92,15 @@ body {
 .instructions {
     padding: 10px 15px;
     font-family: "Bebas Neue", sans-serif;
+    /*border: 2px solid orangered;*/
+}
+
+.instructions-heart {
+    display: flex;
+}
+
+.icon-heart {
+    align-self: flex-end;
+    margin: 10px;
+
 }

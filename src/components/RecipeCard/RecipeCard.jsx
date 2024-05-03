@@ -1,5 +1,6 @@
 
 import './RecipeCard.css'
+import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
 function RecipeCard() {
     const drinks = {
         strDrink: 'Grizzly Bear',
@@ -19,7 +20,10 @@ function RecipeCard() {
                     />
                 </div>
                 <div className="title-ingredient-textbox">
-                    <div className="title-recipe-card">Grizzly Bear</div>
+                    <div className="title-heart-container">
+                        <div className="title-recipe-card">Grizzly Bear</div>
+                        <ClickedHeart/>
+                    </div>
                     <div className="">Ingredients</div>
                     <div className="">Gin{drinks.strCategory}</div>
                     <div className="">Grand Marnier{drinks.strCategory}</div>
@@ -34,8 +38,8 @@ function RecipeCard() {
                 <div className="recipe-specifics">
                     <span className="specifics">Instructions</span>
                     <div className="mocktail-glassshape">
-                    <span className="specifics">non-alcoholic</span>
-                    <span className="specifics">glass shape</span>
+                        <span className="specifics">non-alcoholic</span>
+                        <span className="specifics">glass shape</span>
                     </div>
                 </div>
                 <div className="instructions">Shake all the ingredients in a cocktail shaker and ice then strain in a cold glass.1</div>
