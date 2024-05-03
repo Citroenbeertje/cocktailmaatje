@@ -18,16 +18,16 @@ function HomePage() {
         <SearchBar setCocktails={setCocktails} />
         <DisplaySearchResults cocktails={cocktails} />
       </div>
-      <div className="header-image-container">
-              <img className="cocktail-image-group" src={cocktailone} alt="cocktail-image-citrus"/>
-              <img className="cocktail-image-group" src={cocktailtwo} alt="cocktail-image-green"/>
-              <img className="cocktail-image-group" src={cocktailthree} alt="cocktail-image-apple"/>
-              <img className="cocktail-image-group" src={cocktailfour} alt="cocktail-image-mocktails"/>
-              <img className="cocktail-image-group" src={cocktailfive} alt="cocktail-image-smoke"/>
-              <img className="cocktail-image-group" src={cocktailsix} alt="cocktail-image-happy"/>
-              <img className="cocktail-image-group" src={cocktailseven} alt="cocktail-image-figheart"/>
-              <img className="cocktail-image-group" src={cocktaileight} alt="cocktail-image-burn-rosemary"/>
-      </div>
+      {/*<div className="header-image-container">*/}
+      {/*        <img className="cocktail-image-group" src={cocktailone} alt="cocktail-image-citrus"/>*/}
+      {/*        <img className="cocktail-image-group" src={cocktailtwo} alt="cocktail-image-green"/>*/}
+      {/*        <img className="cocktail-image-group" src={cocktailthree} alt="cocktail-image-apple"/>*/}
+      {/*        <img className="cocktail-image-group" src={cocktailfour} alt="cocktail-image-mocktails"/>*/}
+      {/*        <img className="cocktail-image-group" src={cocktailfive} alt="cocktail-image-smoke"/>*/}
+      {/*        <img className="cocktail-image-group" src={cocktailsix} alt="cocktail-image-happy"/>*/}
+      {/*        <img className="cocktail-image-group" src={cocktailseven} alt="cocktail-image-figheart"/>*/}
+      {/*        <img className="cocktail-image-group" src={cocktaileight} alt="cocktail-image-burn-rosemary"/>*/}
+      {/*</div>*/}
   </>
   );
 }

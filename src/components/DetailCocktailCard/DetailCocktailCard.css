@@ -1,8 +1,8 @@
-.lexend-deca-<uniquifier> {
-                  font-family: "Lexend Deca", sans-serif;
-                  font-optical-sizing: auto;
-                  font-style: normal;
-              }
+/*.lexend-deca-<uniquifier> {*/
+/*                  font-family: "Lexend Deca", sans-serif;*/
+/*                  font-optical-sizing: auto;*/
+/*                  font-style: normal;*/
+/*              }*/
 
 .bebas-neue-regular {
     font-family: "Bebas Neue", sans-serif;
@@ -29,6 +29,34 @@
     height: 170px;
     border-radius: 20px;
     padding: 15px;
+
+}
+
+.container-heart {
+    display: inline-flex;
+    justify-content: flex-end;
+    /*border: 2px solid red;*/
+}
+
+
+.icon-heart {
+    width: 33px;
+    height: 33px;
+    background-color: #B5C1A5;
+    cursor: pointer;
+}
+
+#heart-solid {
+    fill: darkred;
+}
+#heart-outline {
+    fill: #822525;
+}
+#heart-outline:hover {
+    fill: purple;
+}
+#heart-outline:active {
+    fill: royalblue;
 }
 
 /*----------- text ---------*/
@@ -37,11 +65,12 @@
     font-weight: bold;
     font-size: 2rem;
     color: #263019;
+    /*border: 2px solid red;*/
 }
 
 .information-side {
     font-family:  "Lexend Deca", sans-serif;
-    padding: 15px;
+    padding: 15px 25px 15px 15px;
     color: #263019;
     line-height: 1.5;
     /*border: 2px solid rebeccapurple;*/
