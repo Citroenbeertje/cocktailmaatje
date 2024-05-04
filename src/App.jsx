@@ -36,8 +36,8 @@ function App() {
                 <Route path="/register" element={<Register/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>
-            <DetailCocktailCard/>
-            <RecipeCard/>
+            {/*<DetailCocktailCard/>*/}
+            {/*<RecipeCard/>*/}
 
         </div>
     );

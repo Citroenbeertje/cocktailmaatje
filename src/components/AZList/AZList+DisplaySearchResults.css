@@ -26,6 +26,7 @@
     justify-content: center;
     height: 300;
     flex-wrap: row;
+    border: 5px solid pink;
 }
 
 .drink-list {

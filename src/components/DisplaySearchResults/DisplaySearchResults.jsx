@@ -1,4 +1,11 @@
+import {useState} from "react";
+import RecipeCard from "../RecipeCard/RecipeCard.jsx";
+import DetailCocktailCard from "../DetailCocktailCard/DetailCocktailCard.jsx";
+
 function DisplaySearchResults ({cocktails}) {
+
+    const [selectedCocktail, setSelectedCocktail] = useState(null)
+    console.log("selectedCocktail", selectedCocktail)
 
     const renderDrinkList = () => {
         if (cocktails === null) {
@@ -12,7 +19,9 @@ function DisplaySearchResults ({cocktails}) {
                     {cocktails.map((drink) =>
                         <button
                             className='clickable-item'
-                            key={drink.idDrink}>{drink.strDrink}</button>)}
+                            onClick={() => setSelectedCocktail(drink)}
+                            key={drink.idDrink}
+                        >{drink.strDrink}</button>)}
                 </div>
             )
         }
@@ -21,6 +30,7 @@ function DisplaySearchResults ({cocktails}) {
     return (
         <div className='drink-list-parent'>
             {renderDrinkList()}
+            {selectedCocktail && <DetailCocktailCard cocktail={selectedCocktail}/>}
         </div>
     );
 
