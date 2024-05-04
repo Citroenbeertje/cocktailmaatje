@@ -39,6 +39,11 @@
 /*    border: 2px solid red;*/
 /*}*/
 
+.container-title-heart .icon-heart {
+    position: relative;
+    bottom: 50px;
+    left: 10px;
+}
 
 /*----------- text ---------*/
 .title-detail-card {

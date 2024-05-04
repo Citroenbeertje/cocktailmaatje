@@ -71,6 +71,11 @@ body {
     font-size: 18px;
 }
 
+.title-heart-container .icon-heart {
+    position: relative;
+    bottom: 10px;
+}
+
 .lower-textbox {
     display: flex;
     flex-direction: column;

@@ -22,6 +22,7 @@ function DisplaySearchResults ({cocktails}) {
                             onClick={() => setSelectedCocktail(drink)}
                             key={drink.idDrink}
                         >{drink.strDrink}</button>)}
+
                 </div>
             )
         }
