@@ -1,48 +1,73 @@
 
 import './RecipeCard.css'
 import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
-function RecipeCard() {
-    const drinks = {
-        strDrink: 'Grizzly Bear',
-        strIngredient1: 'Main Ingredient',
-        strCategory: 'Category',
-        strAlcoholic: 'Non-alcoholic',
-        strGlass: 'Glass Shape'
-    };
+import {useState} from "react";
+function RecipeCard({cocktail}) {
+    const [favorite, setFavorite] = useState(false)
+    console.log("favorite: ", favorite)
+
+    function clickedHeart() {
+        setFavorite(!favorite);
+    }
+
 
     return (
         <div className="recipe-card-container">
+            <div className="title-likebutton-container">
+                <div className="rcard-title">{cocktail.strDrink}</div>
+                <ClickedHeart/>
+            </div>
             <div className="upper-recipe">
                 <div className="cocktail-image-container">
                     <img className="cocktail-image"
-                         src="https://www.thecocktaildb.com/images/media/drink/2x8thr1504816928.jpg"
+                         src={cocktail.strDrinkThumb}
                          alt="Cocktail Image"
                     />
                 </div>
-                <div className="title-ingredient-textbox">
-                    <div className="title-heart-container">
-                        <div className="title-recipe-card">Grizzly Bear</div>
-                        <ClickedHeart/>
-                    </div>
-                    <div className="">Ingredients</div>
-                    <div className="">Gin{drinks.strCategory}</div>
-                    <div className="">Grand Marnier{drinks.strCategory}</div>
-                    <div className="">Lemon Juice{drinks.strCategory}</div>
-                    <div className="">Grand Marnier{drinks.strCategory}</div>
-                    <div className="">Lemon Juice{drinks.strCategory}</div>
+                <div className="ingredient-textbox">
+
+                    <div className="ingredients-title">Ingredients</div>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>{cocktail.strMeasure1}</td>
+                            <td>{cocktail.strIngredient1}</td>
+                        </tr>
+                        <tr>
+                            <td>{cocktail.strMeasure2}</td>
+                            <td>{cocktail.strIngredient2}</td>
+                        </tr>
+                        <tr>
+                            <td>{cocktail.strMeasure3}</td>
+                            <td>{cocktail.strIngredient3}</td>
+                        </tr>
+                        <tr>
+                            <td>{cocktail.strMeasure4}</td>
+                            <td>{cocktail.strIngredient4}</td>
+                        </tr>
+                        <tr>
+                            <td>{cocktail.strMeasure5}</td>
+                            <td>{cocktail.strIngredient5}</td>
+                        </tr>
+                        <tr>
+                            <td>{cocktail.strMeasure6}</td>
+                            <td>{cocktail.strIngredient6}</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
 
             <div className="lower-textbox">
                 <div className="recipe-specifics">
-                    <span className="specifics">Instructions</span>
-                    <div className="mocktail-glassshape">
-                        <span className="specifics">non-alcoholic</span>
-                        <span className="specifics">glass shape</span>
-                    </div>
+                    {/*<div className="mocktail-glassshape">*/}
+                    <span className="specifics">{cocktail.strAlcoholic}</span>
+                    <span className="specifics">Glass: {cocktail.strGlass}</span>
+                    {/*</div>*/}
                 </div>
-                <div className="instructions">Shake all the ingredients in a cocktail shaker and ice then strain in a cold glass.1</div>
+                <div className="instructions-title">Instructions:</div>
+                <div className="instructions-text">{cocktail.strInstructions}</div>
             </div>
         </div>
     );

@@ -31,7 +31,7 @@ function DisplaySearchResults ({cocktails}) {
         <div className='drink-list-parent'>
             {renderDrinkList()}
             {selectedCocktail && <DetailCocktailCard cocktail={selectedCocktail}/>}
-
+            {selectedCocktail && <RecipeCard cocktail={selectedCocktail}/>}
         </div>
     );
 
