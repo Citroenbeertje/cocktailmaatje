@@ -12,7 +12,7 @@
 
 .cocktail-card {
     display: flex;
-    width: 465px;
+    width: 485px;
     height: 205px;
     border-radius: 10px;
     background-color: #B5C1A5;
@@ -39,6 +39,11 @@
     /*border: 2px solid red;*/
 }
 
+.container-title-heart .icon-heart {
+    position: relative;
+    bottom: 50px;
+    left: 10px;
+}
 
 /*----------- text ---------*/
 .title-detail-card {

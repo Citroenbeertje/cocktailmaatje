@@ -12,7 +12,8 @@ function DisplaySearchResults ({cocktails}) {
                     {cocktails.map((drink) =>
                         <button
                             className='clickable-item'
-                            key={drink.idDrink}>{drink.strDrink}</button>)}
+                            key={drink.idDrink}>{drink.strDrink}
+                        </button>)}
                 </div>
             )
         }
