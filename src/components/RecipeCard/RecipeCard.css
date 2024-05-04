@@ -66,6 +66,11 @@ body {
     justify-content: space-between;
 }
 
+.title-heart-container .icon-heart {
+    position: relative;
+    bottom: 10px;
+}
+
 .lower-textbox {
     display: flex;
     flex-direction: column;
