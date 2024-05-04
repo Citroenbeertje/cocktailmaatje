@@ -10,9 +10,9 @@
     font-style: normal;
 }
 
-.cocktail-card {
+.detail-cocktail-card {
     display: flex;
-    width: 465px;
+    width: 500px;
     height: 205px;
     border-radius: 10px;
     background-color: #B5C1A5;
@@ -34,29 +34,42 @@
 
 }
 
-.container-title-heart {
-    display: flex;
-    /*border: 2px solid red;*/
-}
+/*.container-title-heart {*/
+/*    display: flex;*/
+/*    border: 2px solid red;*/
+/*}*/
 
 
 /*----------- text ---------*/
 .title-detail-card {
     font-family: "Bebas Neue", sans-serif;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 26px;
     color: #263019;
     /*border: 2px solid red;*/
 }
 
+.main-ingredient {
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
 .information-side {
-    font-family:  "Lexend Deca", sans-serif;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    font-family: "Inter", sans-serif;
+    font-weight: normal;
     padding: 15px 25px 15px 15px;
     color: #263019;
     line-height: 1.5;
     /*border: 2px solid rebeccapurple;*/
     width: 65%;
-
+    position: relative;
 }
 
+.heart {
+    /*align-self: end;*/
+    position: absolute;
+    left: 235px;
+    bottom: 8px;
+}
 
