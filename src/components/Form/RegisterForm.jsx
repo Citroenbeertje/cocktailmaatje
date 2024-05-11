@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
 import React from "react";
+import axios from "axios";
 import "./Form.css"
 import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
@@ -9,15 +10,56 @@ function RegisterForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: {errors},
         watch
-    } = useForm({ mode: 'onBlur' });
+    } = useForm();
 
     const password = watch("password");
-    function handleFormSubmit(data) {
+    console.log("password upper", password)
+    async function handleFormSubmit(data) {
         console.log('errors', errors);
         console.log('data', data);
-    };
+
+        try {
+            const response = await axios.post(
+                "https://api.datavortex.nl/cocktailmaatje/users",
+                {
+                    username: data.username,
+                    password: data.password,
+                    email: data.email
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Api-Key': 'cocktailmaatje:V9y28Au3nIqP6TaCI9mC'
+                    }
+                });
+
+            console.log("response", response)
+
+
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    const handleRegister = async () => {
+        try {
+            const response = await axios.post("https://api.datavortex.nl/cocktailmaatje/users", {
+                username: "",
+                password: "",
+                email: "",
+                role: ["user"]
+            }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+
+        } catch (e) {
+            console.error(e);
+        }
+    }
 
 
 
@@ -47,7 +89,7 @@ function RegisterForm() {
 
             <TextField
                 inputId="email-field"
-                inputName="email-input"
+                inputName="email"
                 register={register}
                 inputLabel={"Email"}
                 errors={errors}
@@ -57,15 +99,14 @@ function RegisterForm() {
                         message: "Email is required"
                     },
                     validate: {
-                        value: (value) => value.includes('@'),
-                        message: "Please include @ in the email"
+                        includesAtSign: value => value.includes('@') || "Please include @ in the email"
                     },
                 }}
             />
 
             <PasswordField
                 inputId="password-field"
-                inputName="password-input"
+                inputName="password"
                 register={register}
                 inputLabel={"Choose password"}
                 errors={errors}
@@ -87,13 +128,20 @@ function RegisterForm() {
 
             <PasswordField
                 inputId="password-confirmation-field"
-                inputName="password-confirmation-input"
+                inputName="password-confirmation"
                 register={register}
                 inputLabel={"Confirm Password"}
                 errors={errors}
+                // validationRules={{
+                //     validate: (value) =>
+                //         value === password || "Your passwords do not match, please try again"
+                // }}
                 validationRules={{
-                    validate: (value) =>
-                        value === password || "Your passwords do not match, please try again"
+                    validate: (value) => {
+                        console.log("value", value)
+                        console.log("password", password)
+                        return value === password || "Your passwords do not match, please try again"
+                    }
                 }}
             />
 
