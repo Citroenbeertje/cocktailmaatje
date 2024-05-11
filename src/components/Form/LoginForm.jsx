@@ -1,10 +1,11 @@
 
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
-import React from "react";
+import React, {useState} from "react";
 import "./Form.css"
 import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
+import axios from "axios";
 
 function LoginForm() {
     const {
@@ -14,12 +15,36 @@ function LoginForm() {
         watch
     } = useForm({ mode: 'onBlur' });
 
+    const [token, setToken] = useState();
+    console.log("token", token)
+
     const password = watch("password");
 
-    function handleFormSubmit(data) {
+    async function handleFormSubmit(data) {
         console.log('errors', errors);
         console.log('data', data);
-    };
+        let response;
+
+        try {
+            response = await axios.post(
+                "https://api.datavortex.nl/cocktailmaatje/users/authenticate",
+                {
+                    username: data.username,
+                    password: data.password,
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Api-Key': 'cocktailmaatje:V9y28Au3nIqP6TaCI9mC'
+                    }
+                });
+
+            console.log("response", response)
+        } catch (e) {
+            console.error(e);
+        } finally {
+            setToken(response.data.jwt);
+        }
+    }
 
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)}>
@@ -39,19 +64,12 @@ function LoginForm() {
 
             <PasswordField
                 inputId="password-login-field"
-                inputName="password-login-input"
+                inputName="password"
                 register={register}
                 inputLabel={"Password"}
                 errors={errors}
                 validationRules={{
-                    validate: (value) => {
-                        if (!value) {
-                            return "Please enter a password";
-                        } else if (value !== password) {
-                            return "Password incorrect, please try again"
-                        }
-                        return true;
-                    }
+                    validate: (value) => !value | "Please enter a password"
                 }}
             />
 
