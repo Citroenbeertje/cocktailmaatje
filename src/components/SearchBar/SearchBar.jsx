@@ -117,7 +117,6 @@ function SearchBar({setCocktails}) {
     // --renderbar functie --
     // rendered conditioneel het tweede deel van de zoekfunctie
     const renderBar = (filterTypeValue) => {
-        // TODO onnodige fragments weghalen
         if (filterTypeValue === "search cocktails") {
             return <>
                 {/*<div className="searchbar-box">*/}

@@ -16,7 +16,6 @@ import Register from "./pages/Register/Register.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
-    const [cocktails, setCocktails] = useState([]);
     return (
         <div className='background'>
             <div className='header-section'>
