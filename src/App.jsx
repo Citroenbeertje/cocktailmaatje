@@ -16,6 +16,19 @@ import Register from "./pages/Register/Register.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 
 function App() {
+    const [JWTToken, setJWTToken] = useState(null);
+    const [username, setUsername] = useState(null);
+    const [savedFavorites, setSavedFavorites] = useState();
+
+    console.log("username", username);
+    console.log("JWTToken", JWTToken);
+
+    let userIsLoggedIn = false;
+    if (username !== null && JWTToken !== null) {
+        userIsLoggedIn = true;
+    }
+    console.log("userIsLoggedIn", userIsLoggedIn)
+
     return (
         <div className='background'>
             <div className='header-section'>
@@ -31,7 +44,7 @@ function App() {
                 <Route path="/" element={<HomePage/>} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/favorites" element={<Favorites/>} />
-                <Route path="/login" element={<Login/>} />
+                <Route path="/login" element={<Login setUsername={setUsername} setJWTToken={setJWTToken}/>} />
                 <Route path="/register" element={<Register/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>

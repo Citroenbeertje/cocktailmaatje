@@ -7,7 +7,7 @@ import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
 import axios from "axios";
 
-function LoginForm() {
+function LoginForm({setUsername, setJWTToken}) {
     const {
         register,
         handleSubmit,
@@ -15,8 +15,6 @@ function LoginForm() {
         watch
     } = useForm({ mode: 'onBlur' });
 
-    const [token, setToken] = useState();
-    console.log("token", token)
 
     const password = watch("password");
 
@@ -41,9 +39,13 @@ function LoginForm() {
             console.log("response", response)
         } catch (e) {
             console.error(e);
-        } finally {
-            setToken(response.data.jwt);
         }
+
+        if (response) {
+            setUsername(data.username);
+            setJWTToken(response.data.jwt);
+        }
+
     }
 
     return (
