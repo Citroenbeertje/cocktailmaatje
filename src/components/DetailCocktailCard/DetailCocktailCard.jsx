@@ -3,15 +3,7 @@ import './DetailCocktailCard.css'
 import Heart from '../../assets/heart-outline.svg?react';
 import HeartSolid from '../../assets/heart-solid.svg?react';
 import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
-function DetailCocktailCard({cocktail}) {
-    const [favorite, setFavorite] = useState(false)
-    console.log("favorite: ", favorite)
-
-    function clickedHeart() {
-        setFavorite(!favorite);
-    }
-
-
+function DetailCocktailCard({cocktail, favorites}) {
 
     return (
             <div className="detail-cocktail-card">
@@ -32,7 +24,7 @@ function DetailCocktailCard({cocktail}) {
                     <div className="">Category:{cocktail.strCategory}</div>
                     <div className="">{cocktail.strAlcoholic}</div>
                     <div className="">Glass: {cocktail.strGlass}</div>
-                    <div className="heart"><ClickedHeart/></div>
+                    <div className="heart"><ClickedHeart cocktailID={cocktail.idDrink} favorites={favorites} /></div>
                 </div>
             </div>
     );

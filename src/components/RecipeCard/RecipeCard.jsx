@@ -4,14 +4,8 @@ import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function RecipeCard({cocktail}) {
-    const [favorite, setFavorite] = useState(false)
+function RecipeCard({cocktail, favorites}) {
     const [cocktailInfo, setCocktailInfo] = useState({})
-    console.log("favorite: ", favorite)
-
-    function clickedHeart() {
-        setFavorite(!favorite);
-    }
 
     useEffect(() => {
         const fetchDrinkInformation = async () => {
@@ -28,7 +22,7 @@ function RecipeCard({cocktail}) {
         <div className="recipe-card-container">
             <div className="title-likebutton-container">
                 <div className="rcard-title">{cocktailInfo.strDrink}</div>
-                <ClickedHeart/>
+                <ClickedHeart cocktailID={cocktailInfo.idDrink} favorites={favorites} />
             </div>
             <div className="upper-recipe">
                 <div className="cocktail-image-container">
