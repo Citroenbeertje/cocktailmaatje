@@ -1,41 +1,49 @@
 import Heart from "../../assets/heart-outline.svg?react";
 import HeartSolid from "../../assets/heart-solid.svg?react";
-import {useState} from "react";
 import "./ClickedHeart.css"
+import axios from "axios";
 
-function ClickedHeart({cocktailID, userIsLoggedIn, username, JWTToken, favorites}) {
+function ClickedHeart({cocktailID, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
     const favorite = favorites !== null && favorites.includes(cocktailID);
     console.log("favorite: ", favorite);
-    const clickHeart = () => {
-        toggleFavorite();
-        // als niet ingelogd -> alert("U moet ingelogd zijn om favorieten op te kunnen slaan)
-        // als wel ingelogd:
-        //  als huidige drankje nog geen favoriet is: voeg toe aan favorieten (door verzoek
-        //  PUT https://api.datavortex.nl/cocktailmaatje/users/<username>/)
-        //  als huidige drankje al wel favoriet is: dan verwijderen uit favorieten en alert geven
-        //  (door verzoek PUT https://api.datavortex.nl/cocktailmaatje/users/<username>/ )
+    console.log("userIsLoggedIn", userIsLoggedIn)
 
-    };
-
-    function toggleFavorite() {
-        const updatedFavorites = [...favorites];
+    async function toggleFavorite() {
+        let updatedFavorites;
         if (userIsLoggedIn !== true) {
             alert("U moet ingelogd zijn om favorieten op te kunnen slaan");
-        } else {
-            if (favorites.includes(cocktailID) !== true) {
-                updatedFavorites.push(cocktailID)
-            } else {
-                updatedFavorites.filter(ID => ID !== cocktailID)
-                alert("Cocktail verwijderd uit favorietenlijst")
-            }
-            // TODO updaten van favorieten in eigen state en backend
+            return null
         }
+
+        if (favorite === false) {
+            updatedFavorites = [...favorites, cocktailID];
+        } else {
+            updatedFavorites = favorites.filter(ID => ID !== cocktailID)
+            alert("Cocktail verwijderd uit favorietenlijst")
+        }
+
+        // 1 backend call voor updaten: van Array een string maken met komma's
+        //   gescheiden. Die data opsturen naar backend met call.
+        const response = await axios.put(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
+            // "name": "string",
+            // "email": "string",
+            // "password": "string",
+            "info": updatedFavorites.join(",")
+        }, {
+            headers: {
+                'Authorization': `Bearer ${JWTToken}`
+            }
+        });
+
+        // 2 setFavorites(updatedFavorites)
+        setFavorites(updatedFavorites)
+
     }
 
     return !favorite ? (
-        <button id="heart-outline" className="icon-heart" onClick={clickHeart}><Heart/></button>
+        <button id="heart-outline" className="icon-heart" onClick={toggleFavorite}><Heart/></button>
     ) : (
-        <button id="heart-solid" className="icon-heart" onClick={clickHeart}><HeartSolid/></button>
+        <button id="heart-solid" className="icon-heart" onClick={toggleFavorite}><HeartSolid/></button>
     )
 }
 

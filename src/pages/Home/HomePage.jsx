@@ -11,12 +11,12 @@ import cocktailseven from "../../assets/cocktai7.jpg";
 import cocktaileight from "../../assets/cocktai8.jpg";
 import "./HomePage.css"
 
-function HomePage({favorites}) {
+function HomePage({userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
   const [cocktails, setCocktails] = useState([]);
   return ( <>
       <div className="home-container">
         <SearchBar setCocktails={setCocktails} />
-        <DisplaySearchResults cocktails={cocktails} favorites={favorites}/>
+        <DisplaySearchResults cocktails={cocktails} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites}/>
       </div>
       {/*<div className="header-image-container">*/}
       {/*        <img className="cocktail-image-group" src={cocktailone} alt="cocktail-image-citrus"/>*/}

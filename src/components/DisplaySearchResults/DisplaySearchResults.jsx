@@ -2,7 +2,7 @@ import {useState} from "react";
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 import DetailCocktailCard from "../DetailCocktailCard/DetailCocktailCard.jsx";
 
-function DisplaySearchResults ({cocktails, favorites}) {
+function DisplaySearchResults ({cocktails, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
 
     const [selectedCocktail, setSelectedCocktail] = useState(null)
     console.log("selectedCocktail", selectedCocktail)
@@ -31,8 +31,8 @@ function DisplaySearchResults ({cocktails, favorites}) {
     return (
         <div className='drink-list-parent'>
             {renderDrinkList()}
-            {selectedCocktail && <DetailCocktailCard cocktail={selectedCocktail} favorites={favorites}/>}
-            {selectedCocktail && <RecipeCard cocktail={selectedCocktail} favorites={favorites}/>}
+            {selectedCocktail && <DetailCocktailCard cocktail={selectedCocktail} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites}/>}
+            {selectedCocktail && <RecipeCard cocktail={selectedCocktail} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites}/>}
         </div>
     );
 

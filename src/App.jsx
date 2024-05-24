@@ -71,7 +71,7 @@ function App() {
                 </div>
             </div>
             <Routes>
-                <Route path="/" element={<HomePage favorites={favorites}/>} />
+                <Route path="/" element={<HomePage userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} />} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/favorites" element={<Favorites/>} />
                 <Route path="/login" element={<Login setUsername={setUsername} setJWTToken={setJWTToken}/>} />

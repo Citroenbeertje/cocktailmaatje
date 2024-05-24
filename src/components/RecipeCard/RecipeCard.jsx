@@ -4,7 +4,7 @@ import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
-function RecipeCard({cocktail, favorites}) {
+function RecipeCard({cocktail, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
     const [cocktailInfo, setCocktailInfo] = useState({})
 
     useEffect(() => {
@@ -22,7 +22,7 @@ function RecipeCard({cocktail, favorites}) {
         <div className="recipe-card-container">
             <div className="title-likebutton-container">
                 <div className="rcard-title">{cocktailInfo.strDrink}</div>
-                <ClickedHeart cocktailID={cocktailInfo.idDrink} favorites={favorites} />
+                <ClickedHeart cocktailID={cocktailInfo.idDrink} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} />
             </div>
             <div className="upper-recipe">
                 <div className="cocktail-image-container">

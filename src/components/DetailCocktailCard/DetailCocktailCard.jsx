@@ -1,9 +1,6 @@
-import { useState } from "react";
 import './DetailCocktailCard.css'
-import Heart from '../../assets/heart-outline.svg?react';
-import HeartSolid from '../../assets/heart-solid.svg?react';
 import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
-function DetailCocktailCard({cocktail, favorites}) {
+function DetailCocktailCard({cocktail, userIsLoggedIn, username, JWTToken, favorites, setFavorites }) {
 
     return (
             <div className="detail-cocktail-card">
@@ -24,7 +21,7 @@ function DetailCocktailCard({cocktail, favorites}) {
                     <div className="">Category:{cocktail.strCategory}</div>
                     <div className="">{cocktail.strAlcoholic}</div>
                     <div className="">Glass: {cocktail.strGlass}</div>
-                    <div className="heart"><ClickedHeart cocktailID={cocktail.idDrink} favorites={favorites} /></div>
+                    <div className="heart"><ClickedHeart cocktailID={cocktail.idDrink} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} /></div>
                 </div>
             </div>
     );
