@@ -3,10 +3,11 @@ import HeartSolid from "../../assets/heart-solid.svg?react";
 import "./ClickedHeart.css"
 import axios from "axios";
 
-function ClickedHeart({cocktailID, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
-    const favorite = favorites !== null && favorites.includes(cocktailID);
-    console.log("favorite: ", favorite);
-    console.log("userIsLoggedIn", userIsLoggedIn)
+function ClickedHeart({cocktailID, cocktailName, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
+    const favorite = favorites !== null && favorites.map((data) => data.idDrink).includes(cocktailID);
+    console.log("\nClickedHeart")
+    console.log("cocktailID: ", cocktailID);
+    console.log("cocktailName", cocktailName);
 
     async function toggleFavorite() {
         let updatedFavorites;
@@ -16,19 +17,23 @@ function ClickedHeart({cocktailID, userIsLoggedIn, username, JWTToken, favorites
         }
 
         if (favorite === false) {
-            updatedFavorites = [...favorites, cocktailID];
+            updatedFavorites = [...favorites, {idDrink: cocktailID, strDrink: cocktailName}];
         } else {
-            updatedFavorites = favorites.filter(ID => ID !== cocktailID)
+            updatedFavorites = favorites.filter((data) => data.idDrink !== cocktailID)
             alert("Cocktail verwijderd uit favorietenlijst")
         }
 
+        console.log("updatedFavorites", updatedFavorites)
+
         // 1 backend call voor updaten: van Array een string maken met komma's
         //   gescheiden. Die data opsturen naar backend met call.
+        const favoritesString = updatedFavorites.map((data) => `${data.idDrink}.${data.strDrink}`).join(",");
+        console.log("favoritesString", favoritesString);
         const response = await axios.put(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
             // "name": "string",
             // "email": "string",
             // "password": "string",
-            "info": updatedFavorites.join(",")
+            "info": favoritesString
         }, {
             headers: {
                 'Authorization': `Bearer ${JWTToken}`

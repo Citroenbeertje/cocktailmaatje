@@ -22,7 +22,7 @@ function RecipeCard({cocktail, userIsLoggedIn, username, JWTToken, favorites, se
         <div className="recipe-card-container">
             <div className="title-likebutton-container">
                 <div className="rcard-title">{cocktailInfo.strDrink}</div>
-                <ClickedHeart cocktailID={cocktailInfo.idDrink} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} />
+                <ClickedHeart cocktailID={cocktailInfo.idDrink} cocktailName={cocktailInfo.strDrink} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} />
             </div>
             <div className="upper-recipe">
                 <div className="cocktail-image-container">

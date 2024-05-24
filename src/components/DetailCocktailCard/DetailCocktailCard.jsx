@@ -21,7 +21,7 @@ function DetailCocktailCard({cocktail, userIsLoggedIn, username, JWTToken, favor
                     <div className="">Category:{cocktail.strCategory}</div>
                     <div className="">{cocktail.strAlcoholic}</div>
                     <div className="">Glass: {cocktail.strGlass}</div>
-                    <div className="heart"><ClickedHeart cocktailID={cocktail.idDrink} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} /></div>
+                    <div className="heart"><ClickedHeart cocktailID={cocktail.idDrink} cocktailName={cocktail.strDrink} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} /></div>
                 </div>
             </div>
     );

@@ -36,6 +36,7 @@ function App() {
     useEffect(() => {
         if (userIsLoggedIn) {
             const fetchFavorites = async () => {
+                console.log("\nfetchFavorites")
                 // Dit gebruik van de backend heeft de JWT token nodig, en die wordt hier extra meegegeven
                 // door het aan axios te geven
                 const response = await axios.get(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
@@ -48,9 +49,19 @@ function App() {
                 // Voordat er ooit favorieten zijn opgeslagen is de use info null, en nog geen
                 // string die gesplit kan worden op komma's. Dus zet ik de eerste keer een Lege
                 // Array zodat er favorieten opgeslagen in kunnen worden.
-                if (favoritesString !== null) {
+                // favorites wordt opgeslagen als "id.naam,id.naam,...." en kan opgesplitst
+                // worden
+                if (favoritesString !== null && favoritesString !== "") {
                     const favoritesArray = favoritesString.split(",");
-                    setFavorites(favoritesArray);
+                    const storedFavorites = favoritesArray.map((favorite) => {
+                        const favoriteData = favorite.split(".");
+                        return {
+                            idDrink: favoriteData[0],
+                            strDrink: favoriteData[1]
+                        }
+                    })
+                    console.log("storedFavorites", storedFavorites)
+                    setFavorites(storedFavorites);
                 } else {
                     setFavorites([]);
                 }
@@ -73,7 +84,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} />} />
                 <Route path="/about" element={<About/>} />
-                <Route path="/favorites" element={<Favorites/>} />
+                <Route path="/favorites" element={<Favorites favorites={favorites} />} />
                 <Route path="/login" element={<Login setUsername={setUsername} setJWTToken={setJWTToken}/>} />
                 <Route path="/register" element={<Register/>} />
                 <Route path="*" element={<NotFound/>} />
