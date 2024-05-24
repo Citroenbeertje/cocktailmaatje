@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom';
 import SearchBar from "./components/SearchBar/SearchBar.jsx";
@@ -14,20 +14,50 @@ import Favorites from "./pages/Favorites/Favorites.jsx";
 import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
+import axios from "axios";
 
 function App() {
     const [JWTToken, setJWTToken] = useState(null);
     const [username, setUsername] = useState(null);
-    const [savedFavorites, setSavedFavorites] = useState();
+    const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
+    const [favorites, setFavorites] = useState(null);
+
+    useEffect(() => {
+        if (username !== null && JWTToken !== null) {
+            setUserIsLoggedIn(true);
+        }
+    }, [username, JWTToken]);
 
     console.log("username", username);
     console.log("JWTToken", JWTToken);
+    console.log("userIsLoggedIn", userIsLoggedIn);
+    console.log("favorites", favorites);
 
-    let userIsLoggedIn = false;
-    if (username !== null && JWTToken !== null) {
-        userIsLoggedIn = true;
-    }
-    console.log("userIsLoggedIn", userIsLoggedIn)
+    useEffect(() => {
+        if (userIsLoggedIn) {
+            const fetchFavorites = async () => {
+                // Dit gebruik van de backend heeft de JWT token nodig, en die wordt hier extra meegegeven
+                // door het aan axios te geven
+                const response = await axios.get(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
+                    headers: {
+                        'Authorization': `Bearer ${JWTToken}`
+                    }
+                });
+                console.log("fetchFavorites response", response)
+                const favoritesString = response.data.info;
+                // Voordat er ooit favorieten zijn opgeslagen is de use info null, en nog geen
+                // string die gesplit kan worden op komma's. Dus zet ik de eerste keer een Lege
+                // Array zodat er favorieten opgeslagen in kunnen worden.
+                if (favoritesString !== null) {
+                    const favoritesArray = favoritesString.split(",");
+                    setFavorites(favoritesArray);
+                } else {
+                    setFavorites([]);
+                }
+            };
+            fetchFavorites();
+        }
+    }, [userIsLoggedIn, username, JWTToken]);
 
     return (
         <div className='background'>
