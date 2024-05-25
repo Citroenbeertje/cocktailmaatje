@@ -85,7 +85,13 @@ function App() {
                 <Route path="/" element={<HomePage userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} />} />
                 <Route path="/about" element={<About/>} />
                 <Route path="/favorites" element={<Favorites favorites={favorites} />} />
-                <Route path="/login" element={<Login setUsername={setUsername} setJWTToken={setJWTToken}/>} />
+                <Route path="/login" element={
+                    <Login
+                        setUsername={setUsername}
+                        setJWTToken={setJWTToken}
+                        userIsLoggedIn={userIsLoggedIn}
+                    />
+                } />
                 <Route path="/register" element={<Register/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>

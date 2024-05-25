@@ -6,8 +6,9 @@ import "./Form.css"
 import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
-function LoginForm({setUsername, setJWTToken}) {
+function LoginForm({setUsername, setJWTToken, userIsLoggedIn}) {
     const {
         register,
         handleSubmit,
@@ -45,8 +46,14 @@ function LoginForm({setUsername, setJWTToken}) {
             setUsername(data.username);
             setJWTToken(response.data.jwt);
         }
-
     }
+    if (userIsLoggedIn) {
+        return <>
+        <div>You're logged in</div>
+        <div>Go to the <Link to="/">homepage</Link> to browse through our cocktails</div>
+        </>
+    }
+
 
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)}>
