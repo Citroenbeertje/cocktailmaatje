@@ -1,7 +1,6 @@
 
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
-import React, {useState} from "react";
 import "./Form.css"
 import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
@@ -20,8 +19,6 @@ function LoginForm({setUsername, setJWTToken, userIsLoggedIn}) {
     const password = watch("password");
 
     async function handleFormSubmit(data) {
-        console.log('errors', errors);
-        console.log('data', data);
         let response;
 
         try {
@@ -37,7 +34,6 @@ function LoginForm({setUsername, setJWTToken, userIsLoggedIn}) {
                     }
                 });
 
-            console.log("response", response)
         } catch (e) {
             console.error(e);
         }

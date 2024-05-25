@@ -28,15 +28,9 @@ function App() {
         }
     }, [username, JWTToken]);
 
-    console.log("username", username);
-    console.log("JWTToken", JWTToken);
-    console.log("userIsLoggedIn", userIsLoggedIn);
-    console.log("favorites", favorites);
-
     useEffect(() => {
         if (userIsLoggedIn) {
             const fetchFavorites = async () => {
-                console.log("\nfetchFavorites")
                 // Dit gebruik van de backend heeft de JWT token nodig, en die wordt hier extra meegegeven
                 // door het aan axios te geven
                 const response = await axios.get(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
@@ -44,7 +38,6 @@ function App() {
                         'Authorization': `Bearer ${JWTToken}`
                     }
                 });
-                console.log("fetchFavorites response", response)
                 const favoritesString = response.data.info;
                 // Voordat er ooit favorieten zijn opgeslagen is de use info null, en nog geen
                 // string die gesplit kan worden op komma's. Dus zet ik de eerste keer een Lege
@@ -60,7 +53,6 @@ function App() {
                             strDrink: favoriteData[1]
                         }
                     })
-                    console.log("storedFavorites", storedFavorites)
                     setFavorites(storedFavorites);
                 } else {
                     setFavorites([]);
@@ -82,9 +74,25 @@ function App() {
                 </div>
             </div>
             <Routes>
-                <Route path="/" element={<HomePage userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} />} />
+                <Route path="/" element={
+                    <HomePage
+                        userIsLoggedIn={userIsLoggedIn}
+                        username={username}
+                        JWTToken={JWTToken}
+                        favorites={favorites}
+                        setFavorites={setFavorites}
+                    />
+                } />
                 <Route path="/about" element={<About/>} />
-                <Route path="/favorites" element={<Favorites favorites={favorites} />} />
+                <Route path="/favorites" element={
+                    <Favorites
+                        userIsLoggedIn={userIsLoggedIn}
+                        username={username}
+                        JWTToken={JWTToken}
+                        favorites={favorites}
+                        setFavorites={setFavorites}
+                    />
+                } />
                 <Route path="/login" element={
                     <Login
                         setUsername={setUsername}
@@ -95,9 +103,6 @@ function App() {
                 <Route path="/register" element={<Register/>} />
                 <Route path="*" element={<NotFound/>} />
             </Routes>
-            {/*<DetailCocktailCard/>*/}
-            {/*<RecipeCard/>*/}
-
         </div>
     );
 }

@@ -5,7 +5,6 @@ import DetailCocktailCard from "../DetailCocktailCard/DetailCocktailCard.jsx";
 function DisplaySearchResults ({cocktails, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
 
     const [selectedCocktail, setSelectedCocktail] = useState(null)
-    console.log("selectedCocktail", selectedCocktail)
 
     const renderDrinkList = () => {
         if (cocktails === null) {
@@ -28,11 +27,32 @@ function DisplaySearchResults ({cocktails, userIsLoggedIn, username, JWTToken, f
         }
     }
 
+    const renderCocktailCard = () => {
+        if (userIsLoggedIn) {
+            return <RecipeCard
+                cocktail={selectedCocktail}
+                userIsLoggedIn={userIsLoggedIn}
+                username={username}
+                JWTToken={JWTToken}
+                favorites={favorites}
+                setFavorites={setFavorites}
+            />
+        } else {
+            return <DetailCocktailCard
+                cocktail={selectedCocktail}
+                userIsLoggedIn={userIsLoggedIn}
+                username={username}
+                JWTToken={JWTToken}
+                favorites={favorites}
+                setFavorites={setFavorites}
+            />
+        }
+    }
+
     return (
         <div className='drink-list-parent'>
             {renderDrinkList()}
-            {selectedCocktail && <DetailCocktailCard cocktail={selectedCocktail} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites}/>}
-            {selectedCocktail && <RecipeCard cocktail={selectedCocktail} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites}/>}
+            {selectedCocktail && renderCocktailCard()}
         </div>
     );
 

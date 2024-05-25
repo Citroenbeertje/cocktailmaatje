@@ -1,17 +1,20 @@
-import React, {useState} from "react";
 import DisplaySearchResults from "../../components/DisplaySearchResults/DisplaySearchResults.jsx";
 
-function Favorites({ favorites }) {
-
-    // TODO favorites moet zo omgezet worden dat het
+function Favorites({ userIsLoggedIn, username, JWTToken, favorites, setFavorites }) {
     return (
         <div className="">
             <h1>Favorites</h1>
-            <DisplaySearchResults cocktails={favorites} />
+            <DisplaySearchResults
+                cocktails={favorites}
+                userIsLoggedIn={userIsLoggedIn}
+                username={username}
+                JWTToken={JWTToken}
+                favorites={favorites}
+                setFavorites={setFavorites}
+            />
         </div>
     );
 }
-
 
 
 export default Favorites;
