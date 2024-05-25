@@ -74,7 +74,8 @@
 .heart {
     /*align-self: end;*/
     position: absolute;
-    left: 235px;
+    right: 12px;
     bottom: 8px;
+    z-index: 3;
 }
 
