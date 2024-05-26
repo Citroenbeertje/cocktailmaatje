@@ -48,8 +48,9 @@ function RegisterForm() {
     return (
         <>
             {isRegistered ? (
-                <><h3>You have been successfully registered</h3>
-                    <div>Proceed to <Link to="/login">Login</Link></div>
+                <>
+                    <h3 className="registered-message">You have been successfully registered.</h3>
+                    <h3>Proceed to <Link to="/login" className="go-to-login">Login</Link></h3>
                 </>
 
             ) : (
