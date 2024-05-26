@@ -26,7 +26,7 @@ nav ul a:visited {
 
 .background {
     background-color:  #263019;
-    border: 1px solid red;
+    border: 3px solid red;
 }
 .header-section {
     display: flex;
@@ -68,7 +68,7 @@ li {
 }
 
 
-.default-link:hover {
+.default-link:hover, #logout-link:hover {
     border-bottom: 4px solid darkseagreen;
     background-color: olive;
 

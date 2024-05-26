@@ -1,13 +1,13 @@
 
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
-import React, {useState} from "react";
 import "./Form.css"
 import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
-function LoginForm() {
+function LoginForm({ username, setUsername, setJWTToken, userIsLoggedIn}) {
     const {
         register,
         handleSubmit,
@@ -15,14 +15,10 @@ function LoginForm() {
         watch
     } = useForm({ mode: 'onBlur' });
 
-    const [token, setToken] = useState();
-    console.log("token", token)
 
     const password = watch("password");
 
     async function handleFormSubmit(data) {
-        console.log('errors', errors);
-        console.log('data', data);
         let response;
 
         try {
@@ -38,13 +34,26 @@ function LoginForm() {
                     }
                 });
 
-            console.log("response", response)
         } catch (e) {
             console.error(e);
-        } finally {
-            setToken(response.data.jwt);
+        }
+
+        if (response) {
+            setUsername(data.username);
+            setJWTToken(response.data.jwt);
         }
     }
+    if (userIsLoggedIn) {
+        return (
+            <>
+                <div>You're logged in</div>
+                <h1>{`Hello ${username}`}</h1>
+
+                <div>Go to the <Link to="/">homepage</Link> to browse through our cocktails</div>
+            </>
+        );
+    }
+
 
     return (
         <form onSubmit={handleSubmit(handleFormSubmit)}>

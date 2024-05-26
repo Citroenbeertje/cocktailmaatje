@@ -1,17 +1,6 @@
-import { useState } from "react";
 import './DetailCocktailCard.css'
-import Heart from '../../assets/heart-outline.svg?react';
-import HeartSolid from '../../assets/heart-solid.svg?react';
 import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
-function DetailCocktailCard({cocktail}) {
-    const [favorite, setFavorite] = useState(false)
-    console.log("favorite: ", favorite)
-
-    function clickedHeart() {
-        setFavorite(!favorite);
-    }
-
-
+function DetailCocktailCard({cocktail, userIsLoggedIn, username, JWTToken, favorites, setFavorites }) {
 
     return (
             <div className="detail-cocktail-card">
@@ -32,7 +21,7 @@ function DetailCocktailCard({cocktail}) {
                     <div className="">Category:{cocktail.strCategory}</div>
                     <div className="">{cocktail.strAlcoholic}</div>
                     <div className="">Glass: {cocktail.strGlass}</div>
-                    <div className="heart"><ClickedHeart/></div>
+                    <div className="heart"><ClickedHeart cocktailID={cocktail.idDrink} cocktailName={cocktail.strDrink} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites} /></div>
                 </div>
             </div>
     );
