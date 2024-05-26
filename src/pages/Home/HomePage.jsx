@@ -18,16 +18,16 @@ function HomePage({userIsLoggedIn, username, JWTToken, favorites, setFavorites})
         <SearchBar setCocktails={setCocktails} />
         <DisplaySearchResults cocktails={cocktails} userIsLoggedIn={userIsLoggedIn} username={username} JWTToken={JWTToken} favorites={favorites} setFavorites={setFavorites}/>
       </div>
-      {/*<div className="header-image-container">*/}
-      {/*        <img className="cocktail-image-group" src={cocktailone} alt="cocktail-image-citrus"/>*/}
-      {/*        <img className="cocktail-image-group" src={cocktailtwo} alt="cocktail-image-green"/>*/}
-      {/*        <img className="cocktail-image-group" src={cocktailthree} alt="cocktail-image-apple"/>*/}
-      {/*        <img className="cocktail-image-group" src={cocktailfour} alt="cocktail-image-mocktails"/>*/}
-      {/*        <img className="cocktail-image-group" src={cocktailfive} alt="cocktail-image-smoke"/>*/}
-      {/*        <img className="cocktail-image-group" src={cocktailsix} alt="cocktail-image-happy"/>*/}
-      {/*        <img className="cocktail-image-group" src={cocktailseven} alt="cocktail-image-figheart"/>*/}
-      {/*        <img className="cocktail-image-group" src={cocktaileight} alt="cocktail-image-burn-rosemary"/>*/}
-      {/*</div>*/}
+      <div className="header-image-container">
+              <img className="cocktail-image-group" src={cocktailone} alt="cocktail-image-citrus " loading="lazy"/>
+              <img className="cocktail-image-group" src={cocktailtwo} alt="cocktail-image-green" loading="lazy"/>
+              <img className="cocktail-image-group" src={cocktailthree} alt="cocktail-image-apple" loading="lazy"/>
+              <img className="cocktail-image-group" src={cocktailfour} alt="cocktail-image-mocktails" loading="lazy"/>
+              <img className="cocktail-image-group" src={cocktailfive} alt="cocktail-image-smoke" loading="lazy"/>
+              <img className="cocktail-image-group" src={cocktailsix} alt="cocktail-image-happy" loading="lazy"/>
+              <img className="cocktail-image-group" src={cocktailseven} alt="cocktail-image-figheart" loading="lazy"/>
+              <img className="cocktail-image-group" src={cocktaileight} alt="cocktail-image-burn-rosemary" loading="lazy"/>
+      </div>
   </>
   );
 }
