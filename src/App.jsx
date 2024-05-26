@@ -62,6 +62,15 @@ function App() {
         }
     }, [userIsLoggedIn, username, JWTToken]);
 
+    const handleLogout = () => {
+        // Zorgt ervoor dat een gebruiker wordt uitgelogd
+        alert(`Goodbye ${username}\n\ \n\ and remember to drink wisely`);
+        setJWTToken(null);
+        setUsername(null);
+        setUserIsLoggedIn(false);
+        setFavorites(null);
+    }
+
     return (
         <div className='background'>
             <div className='header-section'>
@@ -70,7 +79,7 @@ function App() {
                     <h2 className="sub-title">Cocktailmaatje: Your assist for recipes and inspiration</h2>
                 </div>
                 <div className="rightheader-navbar">
-                    <Navbar/>
+                    <Navbar userIsLoggedIn={userIsLoggedIn} onLogout={handleLogout}/>
                 </div>
             </div>
             <Routes>
@@ -95,6 +104,7 @@ function App() {
                 } />
                 <Route path="/login" element={
                     <Login
+                        username={username}
                         setUsername={setUsername}
                         setJWTToken={setJWTToken}
                         userIsLoggedIn={userIsLoggedIn}

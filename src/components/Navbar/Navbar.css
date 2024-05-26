@@ -68,7 +68,7 @@ li {
 }
 
 
-.default-link:hover {
+.default-link:hover, #logout-link:hover {
     border-bottom: 4px solid darkseagreen;
     background-color: olive;
 

@@ -3,7 +3,7 @@ import './Navbar.css'
 import { NavLink} from "react-router-dom";
 
 
-function Navbar() {
+function Navbar({userIsLoggedIn, onLogout}) {
 
     return (
 
@@ -21,31 +21,39 @@ function Navbar() {
                         About
                     </NavLink>
                 </li>
-                <li>
+
+                {userIsLoggedIn && <li>
                     <NavLink to="/favorites"
                              className={({isActive}) => isActive === true ? 'active-link' : 'default-link'}>
                         Favorites
                     </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/login"
-                             className={({isActive}) => isActive === true ? 'active-link' : 'default-link'}>
-                        Login
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/register"
-                             className={({isActive}) => isActive === true ? 'active-link' : 'default-link'}>
-                        Register
-                    </NavLink>
-                </li>
+                </li>}
 
-            </ul>
-        </nav>
+                {userIsLoggedIn ? <li id="logout-link" onClick={onLogout}>
+                    Log out
+                </li> : <>
 
-    )
+                    <li>
+                        <NavLink to="/login"
+                                 className={({isActive}) => isActive === true ? 'active-link' : 'default-link'}>
+                            Login
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/register"
+                                 className={({isActive}) => isActive === true ? 'active-link' : 'default-link'}>
+                            Register
+                        </NavLink>
+                    </li>
+                </>}
 
-}
+
+                </ul>
+                    </nav>
+
+                    )
+
+                }
 
 
-export default Navbar;
+                export default Navbar;

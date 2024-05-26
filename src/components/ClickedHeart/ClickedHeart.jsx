@@ -12,7 +12,7 @@ function ClickedHeart({cocktailID, cocktailName, userIsLoggedIn, username, JWTTo
     async function toggleFavorite() {
         let updatedFavorites;
         if (userIsLoggedIn !== true) {
-            alert("U moet ingelogd zijn om favorieten op te kunnen slaan");
+            alert("Login to save your favorite cocktails");
             return null
         }
 

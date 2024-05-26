@@ -7,7 +7,7 @@ import PasswordField from "./PasswordField.jsx";
 import axios from "axios";
 import { Link } from 'react-router-dom';
 
-function LoginForm({setUsername, setJWTToken, userIsLoggedIn}) {
+function LoginForm({ username, setUsername, setJWTToken, userIsLoggedIn}) {
     const {
         register,
         handleSubmit,
@@ -44,10 +44,14 @@ function LoginForm({setUsername, setJWTToken, userIsLoggedIn}) {
         }
     }
     if (userIsLoggedIn) {
-        return <>
-        <div>You're logged in</div>
-        <div>Go to the <Link to="/">homepage</Link> to browse through our cocktails</div>
-        </>
+        return (
+            <>
+                <div>You're logged in</div>
+                <h1>{`Hello ${username}`}</h1>
+
+                <div>Go to the <Link to="/">homepage</Link> to browse through our cocktails</div>
+            </>
+        );
     }
 
 
