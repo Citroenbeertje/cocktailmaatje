@@ -1,0 +1,60 @@
+#about-title {
+    margin: 30px auto;
+    text-align: center;
+    font-size: 2em;
+}
+
+.about-container {
+    display: flex;
+    width: 55%;
+    margin: 40px auto;
+}
+
+about-image-container {
+    margin: 60px;
+}
+
+.cocktail-image-about {
+    max-width: 90%;
+    height: auto;
+
+}
+
+
+
+.about-content {
+    width: 60%;
+    font-family: "Inter", sans-serif;
+    /*border: 3px solid red;*/
+    padding: 0 70px 0 55px;
+}
+
+.about-container a {
+    text-decoration: none;
+    color: #B5C1A5;
+    font-weight: bold;
+}
+
+.about-container a:hover {
+    color: cornflowerblue;
+    text-decoration: underline;
+}
+
+.about-content p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.about-content ul {
+    margin-bottom: 1em;
+    list-style-position: inside;
+}
+
+.about-content ul li{
+    margin-bottom: 0.5em;
+    line-height: 1px;
+}
+
+h1, h2 {
+    font-size: 1.4em;
+}
