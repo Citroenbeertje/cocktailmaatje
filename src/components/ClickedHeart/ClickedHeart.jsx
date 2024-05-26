@@ -12,7 +12,7 @@ function ClickedHeart({cocktailID, cocktailName, userIsLoggedIn, username, JWTTo
     async function toggleFavorite() {
         let updatedFavorites;
         if (userIsLoggedIn !== true) {
-            alert("Login to save your favorite cocktails");
+            alert("Log in to save your favorite cocktails");
             return null
         }
 
@@ -20,7 +20,7 @@ function ClickedHeart({cocktailID, cocktailName, userIsLoggedIn, username, JWTTo
             updatedFavorites = [...favorites, {idDrink: cocktailID, strDrink: cocktailName}];
         } else {
             updatedFavorites = favorites.filter((data) => data.idDrink !== cocktailID)
-            alert("Cocktail verwijderd uit favorietenlijst")
+            alert("Cocktail removed from your favorite list")
         }
 
         console.log("updatedFavorites", updatedFavorites)

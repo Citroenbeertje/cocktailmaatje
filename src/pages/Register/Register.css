@@ -4,3 +4,10 @@
     align-items: center;
     margin: 50px;
 }
+
+.register-page h1 {
+    font-size: 2em;
+}
+.register-page h2 {
+    padding-top: 25px;
+}

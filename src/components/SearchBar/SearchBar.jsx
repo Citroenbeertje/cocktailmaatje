@@ -121,6 +121,7 @@ function SearchBar({setCocktails}) {
             return <>
                 {/*<div className="searchbar-box">*/}
                     <input type="text"
+                           className="search-input-bar"
                            placeholder="search for cocktails"
                            value={searchInput}
                            onChange={(e) => setSearchInput(e.target.value)}

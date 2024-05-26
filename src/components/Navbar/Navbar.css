@@ -26,7 +26,7 @@ nav ul a:visited {
 
 .background {
     background-color:  #263019;
-    border: 3px solid red;
+    overflow-y: scroll;
 }
 .header-section {
     display: flex;
@@ -85,4 +85,81 @@ li {
     font-family: "Courier Prime", monospace;
     font-size: 1rem;
     color: #ECECEC;
+}
+
+
+/*----Media Query----*/
+@media (max-width: 1200px) {
+    .header-section {
+        margin: 100px 100px 0;
+    }
+
+    .cocktailmaatje-title {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-section {
+        margin: 50px 50px 0;
+    }
+
+    .cocktailmaatje-title {
+        font-size: 3rem;
+    }
+
+    nav ul a, nav ul a:visited {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    li {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-section {
+        flex-direction: column;
+        align-items: center;
+        margin: 50px 20px 0;
+    }
+
+    .cocktailmaatje-title {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .sub-title {
+        text-align: center;
+    }
+
+    .default-link-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul a, nav ul a:visited {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    li {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cocktailmaatje-title {
+        font-size: 2rem;
+    }
+
+    nav ul a, nav ul a:visited {
+        font-size: 0.7rem;
+        padding: 5px 8px;
+    }
+
+    li {
+        padding: 8px;
+    }
 }

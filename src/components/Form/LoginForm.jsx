@@ -46,10 +46,8 @@ function LoginForm({ username, setUsername, setJWTToken, userIsLoggedIn}) {
     if (userIsLoggedIn) {
         return (
             <>
-                <div>You're logged in</div>
-                <h1>{`Hello ${username}`}</h1>
-
-                <div>Go to the <Link to="/">homepage</Link> to browse through our cocktails</div>
+                <h1>{`${username}`}</h1>
+                <h3 className="logged-in-message">You're logged in. Go to the <Link to="/" className="go-to-homepage">homepage</Link> to browse through our cocktails</h3>
             </>
         );
     }

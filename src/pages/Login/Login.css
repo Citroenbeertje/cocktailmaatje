@@ -2,6 +2,14 @@ body {
     color: #ECECEC;
 }
 
+.login-page h1 {
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+.login-page h2 {
+    margin-bottom: 25px;
+}
+
 
 .login-page {
     display: flex;
@@ -9,6 +17,7 @@ body {
     align-items: center;
     margin: 50px;
 }
+
 
 /*.login-page h1 {*/
 /*    font-family: "DM Serif Display", serif;*/

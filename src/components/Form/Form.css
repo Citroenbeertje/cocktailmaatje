@@ -25,3 +25,27 @@ label {
     width: 100%;
     background-color: #F9FFF0;
 }
+
+
+.logged-in-message p {
+    font-size: 2em;
+}
+
+.logged-in-message {
+    font-size: 1em;
+}
+
+.go-to-homepage, .go-to-login{
+    text-decoration: underline;
+    color: #B5C1A5;
+}
+.go-to-homepage:hover, .go-to-login:hover{
+    text-decoration: underline;
+    color: cornflowerblue;
+}
+
+.registered-message, h3{
+    line-height: 2em;
+
+}
+
