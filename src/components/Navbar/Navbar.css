@@ -26,7 +26,7 @@ nav ul a:visited {
 
 .background {
     background-color:  #263019;
-    border: 3px solid red;
+    overflow-y: scroll;
 }
 .header-section {
     display: flex;

@@ -53,8 +53,13 @@ about-image-container {
 .about-content ul li{
     margin-bottom: 0.5em;
     line-height: 1px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+
 }
 
 h1, h2 {
     font-size: 1.4em;
 }
+
+/*--- media query ----*/

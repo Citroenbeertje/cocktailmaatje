@@ -1,7 +1,9 @@
 .a-z-list {
     display: flex;
     justify-content: center;
+
     /*border: 5px solid mediumpurple;*/
+    margin-top: 5px;
 }
 
 .letter-button {
@@ -24,15 +26,19 @@
     display: flex;
     justify-content: center;
     height: 400px;
-    border: 3px solid mediumpurple;
+    /*border: 3px solid mediumpurple;*/
+    padding: 35px 0;
+    margin-bottom: 70px;
 }
 
 .drink-list {
     display: flex;
     flex-direction: column;
     width: fit-content;
-    border: 3px solid mediumspringgreen;
+    /*border: 2px solid mediumspringgreen;*/
     flex-wrap: wrap;
+    padding-top: 35px;
+    margin-right: 45px;
 }
 
 .clickable-item {
@@ -40,7 +46,7 @@
     background-color: #263019;
     color: #ECECEC;
     font-size: 1rem;
-    border: 3px solid mediumspringgreen;
+    border: 3px solid darkolivegreen;
 }
 
 .clickable-item:hover {
