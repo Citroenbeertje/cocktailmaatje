@@ -22,16 +22,17 @@ function Navbar({userIsLoggedIn, onLogout}) {
                     </NavLink>
                 </li>
 
-                {userIsLoggedIn && <li>
-                    <NavLink to="/favorites"
-                             className={({isActive}) => isActive === true ? 'active-link' : 'default-link'}>
-                        Favorites
-                    </NavLink>
-                </li>}
-
-                {userIsLoggedIn ? <li id="logout-link" onClick={onLogout}>
-                    Log out
-                </li> : <>
+                {userIsLoggedIn ? <>
+                    <li>
+                        <NavLink to="/favorites"
+                                 className={({isActive}) => isActive === true ? 'active-link' : 'default-link'}>
+                            Favorites
+                        </NavLink>
+                    </li>
+                    <li id="logout-link" onClick={onLogout}>
+                        Log out
+                    </li>
+                </> : <>
 
                     <li>
                         <NavLink to="/login"
