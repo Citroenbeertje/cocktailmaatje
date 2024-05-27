@@ -8,7 +8,6 @@ function DetailCocktailCard({cocktail, userIsLoggedIn, username, JWTToken, favor
     useEffect(() => {
         const fetchDrinkInformation = async () => {
             const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.idDrink}`);
-            console.log("response", response)
             setCocktailInfo(response.data.drinks[0])
         }
 

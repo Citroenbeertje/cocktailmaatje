@@ -18,7 +18,6 @@ function RegisterForm() {
     const [isRegistered, setIsRegistered] = useState(false);
 
     const password = watch("password");
-    console.log("password upper", password)
     async function handleFormSubmit(data) {
 
         try {
