@@ -10,7 +10,6 @@ function RecipeCard({cocktail, userIsLoggedIn, username, JWTToken, favorites, se
     useEffect(() => {
         const fetchDrinkInformation = async () => {
             const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.idDrink}`);
-            console.log("response", response)
             setCocktailInfo(response.data.drinks[0])
         }
 
@@ -68,10 +67,8 @@ function RecipeCard({cocktail, userIsLoggedIn, username, JWTToken, favorites, se
 
             <div className="lower-textbox">
                 <div className="recipe-specifics">
-                    {/*<div className="mocktail-glassshape">*/}
                     <span className="specifics">{cocktailInfo.strAlcoholic}</span>
                     <span className="specifics">Glass: {cocktailInfo.strGlass}</span>
-                    {/*</div>*/}
                 </div>
                 <div className="instructions-title">Instructions:</div>
                 <div className="instructions-text">{cocktailInfo.strInstructions}</div>

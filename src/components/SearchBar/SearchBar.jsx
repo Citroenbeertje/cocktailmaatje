@@ -63,7 +63,6 @@ function SearchBar({setCocktails}) {
     useEffect(() => {
         const fetchDrinksByIngredient = async () => {
             const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`);
-            console.log("response", response)
             setCocktails(response.data.drinks);
         }
 
@@ -76,7 +75,6 @@ function SearchBar({setCocktails}) {
     useEffect(() => {
         const fetchDrinksByCategory = async () => {
             const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${selectedCategory}`);
-            console.log("response", response)
             setCocktails(response.data.drinks);
         }
 
@@ -89,7 +87,6 @@ function SearchBar({setCocktails}) {
     useEffect(() => {
         const fetchGlassByCategory = async () => {
             const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?g=${selectedGlass}`);
-            console.log("response", response)
             setCocktails(response.data.drinks);
         }
 
@@ -102,11 +99,10 @@ function SearchBar({setCocktails}) {
     useEffect(() => {
         const fetchDrinksByMocktail = async () => {
             const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${selectedMocktail}`);
-            console.log("response", response)
             setCocktails(response.data.drinks);
         }
 
-        if (selectedCategory !== "") {
+        if (selectedMocktail !== "") {
             fetchDrinksByMocktail();
         }
 
@@ -119,15 +115,12 @@ function SearchBar({setCocktails}) {
     const renderBar = (filterTypeValue) => {
         if (filterTypeValue === "search cocktails") {
             return <>
-                {/*<div className="searchbar-box">*/}
-                    <input type="text"
-                           className="search-input-bar"
-                           placeholder="search for cocktails"
-                           value={searchInput}
-                           onChange={(e) => setSearchInput(e.target.value)}
-                    />
-                {/*    <img src={icon} alt="magnifying-glass"/>*/}
-                {/*</div>*/}
+                <input type="text"
+                    className="search-input-bar"
+                    placeholder="search for cocktails"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                />
                 <Button onClick={handleSearchClick}>Search</Button>
             </>
         }
@@ -172,16 +165,18 @@ function SearchBar({setCocktails}) {
         }
         else if (filterTypeValue === "mocktails") {
             return <select
-                    name="secondary-dropdown"
-                    id="blabla"
-                    onChange={(e) => setSelectedMocktail(e.target.value)}
-                    value={selectedMocktail}
-                    >
-                    {mocktailsOption.map((mocktails) => {
-                        return <option key={mocktails.strAlcoholic} value={mocktails.strAlcoholic}>{mocktails.strAlcoholic}</option>
-                    })}
+                name="secondary-dropdown"
+                id="blabla"
+                onChange={(e) => setSelectedMocktail(e.target.value)}
+                value={selectedMocktail}
+            >
+                <option key="mocktail-picker" value={""}>---- Choose alcohol content ----</option>
+                {mocktailsOption.map((mocktails) => {
+                    return <option key={mocktails.strAlcoholic}
+                                   value={mocktails.strAlcoholic}>{mocktails.strAlcoholic}</option>
+                })}
 
-                </select>
+            </select>
         }
     }
 
