@@ -5,7 +5,6 @@ function Login({ username, setUsername, setJWTToken, userIsLoggedIn }) {
         <div className="login-page">
             <h1>Login</h1>
             <h2>Welcome back to Cocktailmaatje</h2>
-            <h2>aaaaBBBB!1</h2>
             <LoginForm
                 setUsername={setUsername}
                 setJWTToken={setJWTToken}
