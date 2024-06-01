@@ -12,10 +12,11 @@ In de terminal installer je node met:
 Dit zal het package.json bestand gebruiken om de applicatie te installeren.
 
 ## Commando's voor applicatie
-Nu de applicatie geinstalleerd is staan er in het package.json bestand vier commando's die u kunt uitvoeren op de
+Nu de applicatie geinstalleerd is staan er in het package.json wat commando's die je kunt uitvoeren op de
 volgende manier:
 
 `npm run <commando naam>`
+
 
 Zo kun je met `npm run dev` de Vite server draaien met de link http://localhost:5173/ die verschijnt. 
 De applicatie opent daarmee in je browser. Type het commando `npm run build` in de terminal voor een geoptimaliseerde versie van de applicatie. 
