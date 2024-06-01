@@ -2,6 +2,7 @@ import Heart from "../../assets/heart-outline.svg?react";
 import HeartSolid from "../../assets/heart-solid.svg?react";
 import "./ClickedHeart.css"
 import axios from "axios";
+import {favoritesArrayToString} from "../../helpers/helpers.js";
 
 function ClickedHeart({cocktailID, cocktailName, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
     const favorite = favorites !== null && favorites.map((data) => data.idDrink).includes(cocktailID);
@@ -23,16 +24,14 @@ function ClickedHeart({cocktailID, cocktailName, userIsLoggedIn, username, JWTTo
 
         // 1 backend call voor updaten: van Array een string maken met komma's
         //   gescheiden. Die data opsturen naar backend met call.
-        const favoritesString = updatedFavorites.map((data) => `${data.idDrink}.${data.strDrink}`).join(",");
-        const response = await axios.put(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
+        const favoritesString = favoritesArrayToString(updatedFavorites);
+        await axios.put(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
             "info": favoritesString
         }, {
             headers: {
                 'Authorization': `Bearer ${JWTToken}`
             }
         });
-
-        // 2 setFavorites(updatedFavorites)
         setFavorites(updatedFavorites)
 
     }

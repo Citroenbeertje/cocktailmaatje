@@ -15,6 +15,7 @@ import Login from "./pages/Login/Login.jsx";
 import Register from "./pages/Register/Register.jsx";
 import NotFound from "./pages/NotFound/NotFound.jsx";
 import axios from "axios";
+import {favoritesStringToArray} from "./helpers/helpers.js";
 
 function App() {
     const [JWTToken, setJWTToken] = useState(null);
@@ -45,14 +46,7 @@ function App() {
                 // favorites wordt opgeslagen als "id.naam,id.naam,...." en kan opgesplitst
                 // worden
                 if (favoritesString !== null && favoritesString !== "") {
-                    const favoritesArray = favoritesString.split(",");
-                    const storedFavorites = favoritesArray.map((favorite) => {
-                        const favoriteData = favorite.split(".");
-                        return {
-                            idDrink: favoriteData[0],
-                            strDrink: favoriteData[1]
-                        }
-                    })
+                    const storedFavorites = favoritesStringToArray(favoritesString);
                     setFavorites(storedFavorites);
                 } else {
                     setFavorites([]);
