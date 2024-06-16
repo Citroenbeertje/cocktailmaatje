@@ -1,6 +1,6 @@
 
-![Screenshot](dist/assets/Screenshot%202024-06-02%20003838%20-%20Copy.png)
 
+![screenshotreadme.png](src%2Fassets%2Fscreenshotreadme.png)
 
 ## README: Cocktailmaatje Applicatie
 
