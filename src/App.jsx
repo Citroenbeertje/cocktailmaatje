@@ -17,57 +17,10 @@ import axios from "axios";
 import {favoritesStringToArray} from "./helpers/helpers.js";
 import { LoginProvider } from './context/LoginContext';
 
-const LoginContext= createContext();
 function App() {
-    const [JWTToken, setJWTToken] = useState(null);
-    const [username, setUsername] = useState(null);
-    const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
-    const [favorites, setFavorites] = useState(null);
-
-    useEffect(() => {
-        if (username !== null && JWTToken !== null) {
-            setUserIsLoggedIn(true);
-        }
-    }, [username, JWTToken]);
-
-    useEffect(() => {
-        if (userIsLoggedIn) {
-            const fetchFavorites = async () => {
-                // Dit gebruik van de backend heeft de JWT token nodig, en die wordt hier extra meegegeven
-                // door het aan axios te geven
-                const response = await axios.get(`https://api.datavortex.nl/cocktailmaatje/users/${username}`, {
-                    headers: {
-                        'Authorization': `Bearer ${JWTToken}`
-                    }
-                });
-                const favoritesString = response.data.info;
-                // Voordat er ooit favorieten zijn opgeslagen is de use info null, en nog geen
-                // string die gesplit kan worden op komma's. Dus zet ik de eerste keer een Lege
-                // Array zodat er favorieten opgeslagen in kunnen worden.
-                // favorites wordt opgeslagen als "id.naam,id.naam,...." en kan opgesplitst
-                // worden
-                if (favoritesString !== null && favoritesString !== "") {
-                    const storedFavorites = favoritesStringToArray(favoritesString);
-                    setFavorites(storedFavorites);
-                } else {
-                    setFavorites([]);
-                }
-            };
-            fetchFavorites();
-        }
-    }, [userIsLoggedIn, username, JWTToken]);
-
-    const handleLogout = () => {
-        // Zorgt ervoor dat een gebruiker wordt uitgelogd
-        alert(`Goodbye ${username}\n\ \n\ and remember to drink wisely`);
-        setJWTToken(null);
-        setUsername(null);
-        setUserIsLoggedIn(false);
-        setFavorites(null);
-    }
 
     return (
-        <LoginContext.Provider value={{ userIsLoggedIn, setUserIsLoggedIn, username, setUsername, JWTToken, setJWTToken, favorites, setFavorites}}>
+        <LoginProvider>
             <div className='background'>
                 <div className='header-section'>
                     <div className='leftheader-logo'>
@@ -75,43 +28,70 @@ function App() {
                         <h2 className="sub-title">Cocktailmaatje: Your assist for recipes and inspiration</h2>
                     </div>
                     <div className="rightheader-navbar">
-                        <Navbar userIsLoggedIn={userIsLoggedIn} onLogout={handleLogout}/>
+                        <Navbar />
                     </div>
                 </div>
                 <Routes>
-                    <Route path="/" element={
-                        <HomePage
-                            userIsLoggedIn={userIsLoggedIn}
-                            username={username}
-                            JWTToken={JWTToken}
-                            favorites={favorites}
-                            setFavorites={setFavorites}
-                        />
-                    }/>
+                    <Route path="/" element={<HomePage/>}/>
                     <Route path="/about" element={<About/>}/>
-                    <Route path="/favorites" element={
-                        <Favorites
-                            userIsLoggedIn={userIsLoggedIn}
-                            username={username}
-                            JWTToken={JWTToken}
-                            favorites={favorites}
-                            setFavorites={setFavorites}
-                        />
-                    }/>
-                    <Route path="/login" element={
-                        <Login
-                            username={username}
-                            setUsername={setUsername}
-                            setJWTToken={setJWTToken}
-                            userIsLoggedIn={userIsLoggedIn}
-                        />
-                    }/>
+                    <Route path="/favorites" element={<Favorites/>}/>
+                    <Route path="/login" element={<Login/>}/>
                     <Route path="/register" element={<Register/>}/>
                     <Route path="*" element={<NotFound/>}/>
                 </Routes>
             </div>
-        </LoginContext.Provider>
+        </LoginProvider>
     );
 }
-
 export default App;
+
+// function App() {
+//
+//     return (
+//         <LoginContext.Provider value={{ userIsLoggedIn, setUserIsLoggedIn, username, setUsername, JWTToken, setJWTToken, favorites, setFavorites}}>
+//             <div className='background'>
+//                 <div className='header-section'>
+//                     <div className='leftheader-logo'>
+//                         <h1 className="cocktailmaatje-title">Cocktailmaatje</h1>
+//                         <h2 className="sub-title">Cocktailmaatje: Your assist for recipes and inspiration</h2>
+//                     </div>
+//                     <div className="rightheader-navbar">
+//                         <Navbar userIsLoggedIn={userIsLoggedIn} onLogout={handleLogout}/>
+//                     </div>
+//                 </div>
+//                 <Routes>
+//                     <Route path="/" element={
+//                         <HomePage
+//                             userIsLoggedIn={userIsLoggedIn}
+//                             username={username}
+//                             JWTToken={JWTToken}
+//                             favorites={favorites}
+//                             setFavorites={setFavorites}
+//                         />
+//                     }/>
+//                     <Route path="/about" element={<About/>}/>
+//                     <Route path="/favorites" element={
+//                         <Favorites
+//                             userIsLoggedIn={userIsLoggedIn}
+//                             username={username}
+//                             JWTToken={JWTToken}
+//                             favorites={favorites}
+//                             setFavorites={setFavorites}
+//                         />
+//                     }/>
+//                     <Route path="/login" element={
+//                         <Login
+//                             username={username}
+//                             setUsername={setUsername}
+//                             setJWTToken={setJWTToken}
+//                             userIsLoggedIn={userIsLoggedIn}
+//                         />
+//                     }/>
+//                     <Route path="/register" element={<Register/>}/>
+//                     <Route path="*" element={<NotFound/>}/>
+//                 </Routes>
+//             </div>
+//         </LoginContext.Provider>
+//     );
+// }
+

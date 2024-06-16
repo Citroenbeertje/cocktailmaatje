@@ -1,9 +1,10 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 import RecipeCard from "../RecipeCard/RecipeCard.jsx";
 import DetailCocktailCard from "../DetailCocktailCard/DetailCocktailCard.jsx";
+import {LoginContext} from "../../context/LoginContext.jsx";
 
-function DisplaySearchResults ({cocktails, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
-
+function DisplaySearchResults ({cocktails}) {
+    const {userIsLoggedIn, username, JWTToken, favorites, setFavorites} = useContext(LoginContext);
     const [selectedCocktail, setSelectedCocktail] = useState(null)
 
     const renderDrinkList = () => {

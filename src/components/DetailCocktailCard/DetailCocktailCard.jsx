@@ -1,8 +1,10 @@
 import './DetailCocktailCard.css'
 import ClickedHeart from "../ClickedHeart/ClickedHeart.jsx";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
 import axios from "axios";
-function DetailCocktailCard({cocktail, userIsLoggedIn, username, JWTToken, favorites, setFavorites }) {
+import {LoginContext} from "../../context/LoginContext.jsx";
+function DetailCocktailCard({cocktail}) {
+    const {userIsLoggedIn, username, JWTToken, favorites, setFavorites} = useContext(LoginContext);
     const [cocktailInfo, setCocktailInfo] = useState({})
 
     useEffect(() => {

@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useContext } from 'react';
 import './Navbar.css'
 import { NavLink} from "react-router-dom";
+import {LoginContext} from "../../context/LoginContext.jsx";
 
-
-function Navbar({userIsLoggedIn, onLogout}) {
+function Navbar() {
+    const {userIsLoggedIn, onLogout} = useContext(LoginContext);
 
     return (
 

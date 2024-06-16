@@ -1,6 +1,10 @@
+import React, {useContext} from "react";
 import LoginForm from "../../components/Form/LoginForm.jsx";
 import "./Login.css"
-function Login({ username, setUsername, setJWTToken, userIsLoggedIn }) {
+import {LoginContext} from "../../context/LoginContext.jsx";
+
+function Login() {
+    const {username, setUsername, setJWTToken, userIsLoggedIn} = useContext(LoginContext);
     return (
         <div className="login-page">
             <h1>Login</h1>

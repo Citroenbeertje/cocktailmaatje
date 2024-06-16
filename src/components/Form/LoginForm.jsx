@@ -1,4 +1,4 @@
-
+import React, {useContext} from "react";
 import { useForm } from 'react-hook-form';
 import Button from "../Button/Button.jsx";
 import "./Form.css"
@@ -6,15 +6,16 @@ import TextField from "./TextField.jsx";
 import PasswordField from "./PasswordField.jsx";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import {LoginContext} from "../../context/LoginContext.jsx";
 
-function LoginForm({ username, setUsername, setJWTToken, userIsLoggedIn}) {
+function LoginForm() {
     const {
         register,
         handleSubmit,
         formState: { errors },
         watch
     } = useForm({ mode: 'onBlur' });
-
+    const { username, setUsername, setJWTToken, userIsLoggedIn} = useContext(LoginContext);
 
     const password = watch("password");
 

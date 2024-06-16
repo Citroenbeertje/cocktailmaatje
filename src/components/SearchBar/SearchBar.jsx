@@ -1,8 +1,9 @@
 import './SearchBar.css';
 import axios from 'axios';
 import AZList from "../AZList/AZList.jsx";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import Button from "../Button/Button.jsx";
+import { LoginContext } from '../../context/LoginContext.jsx';
 
 // import icon from '../../assets/glass-icon.png';
 
@@ -21,6 +22,7 @@ function SearchBar({setCocktails}) {
     const [selectedGlass, setSelectedGlass] = useState("");
     const [selectedMocktail, setSelectedMocktail] = useState("");
 
+    const { userIsLoggedIn, username, JWTToken, favorites, setFavorites } = useContext(LoginContext);
     const handleSearchClick = async () => {
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInput}`);
         setCocktails(response.data.drinks);
