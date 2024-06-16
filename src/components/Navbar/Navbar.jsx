@@ -4,8 +4,8 @@ import { NavLink} from "react-router-dom";
 import {LoginContext} from "../../context/LoginContext.jsx";
 
 function Navbar() {
-    const {userIsLoggedIn, onLogout} = useContext(LoginContext);
-
+    const {userIsLoggedIn, handleLogout} = useContext(LoginContext);
+    console.log({ userIsLoggedIn, handleLogout });
     return (
 
         <nav className="nav-container">
@@ -30,7 +30,7 @@ function Navbar() {
                             Favorites
                         </NavLink>
                     </li>
-                    <li id="logout-link" onClick={onLogout}>
+                    <li id="logout-link" onClick={handleLogout}>
                         Log out
                     </li>
                 </> : <>

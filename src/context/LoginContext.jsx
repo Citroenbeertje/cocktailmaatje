@@ -58,4 +58,4 @@ const LoginProvider = ({ children }) => {
     );
 };
 
-export { LoginContext, LoginProvider };
+export {LoginContext, LoginProvider};
