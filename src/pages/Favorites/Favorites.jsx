@@ -1,7 +1,10 @@
+import React, { useContext } from 'react';
 import DisplaySearchResults from "../../components/DisplaySearchResults/DisplaySearchResults.jsx";
 import "./Favorites.css"
+import {LoginContext} from "../../context/LoginContext.jsx";
 
-function Favorites({ userIsLoggedIn, username, JWTToken, favorites, setFavorites }) {
+function Favorites() {
+    const { userIsLoggedIn, username, JWTToken, favorites, setFavorites } = useContext(LoginContext);
     return (
         <div className="favorites-page">
             <h1>Your Cocktail Favorites</h1>

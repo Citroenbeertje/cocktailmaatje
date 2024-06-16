@@ -1,6 +1,6 @@
 import SearchBar from "../../components/SearchBar/SearchBar.jsx";
 import DisplaySearchResults from "../../components/DisplaySearchResults/DisplaySearchResults.jsx";
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import cocktailone from "../../assets/cocktail1.jpg";
 import cocktailtwo from "../../assets/cocktai2.jpg";
 import cocktailthree from "../../assets/cocktai3.jpg";
@@ -10,9 +10,11 @@ import cocktailsix from "../../assets/cocktai6.jpg";
 import cocktailseven from "../../assets/cocktai7.jpg";
 import cocktaileight from "../../assets/cocktai8.jpg";
 import "./HomePage.css"
+import { LoginContext} from "../../context/LoginContext.jsx";
 
-function HomePage({userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
-  const [cocktails, setCocktails] = useState([]);
+function HomePage() {
+  const {userIsLoggedIn, username, JWTToken, favorites, setFavorites} = useContext(LoginContext);
+    const [cocktails, setCocktails] = useState([]);
   return ( <>
       <div className="home-container">
         <SearchBar setCocktails={setCocktails} />

@@ -1,10 +1,13 @@
+import React, {useContext} from "react";
 import Heart from "../../assets/heart-outline.svg?react";
 import HeartSolid from "../../assets/heart-solid.svg?react";
 import "./ClickedHeart.css"
 import axios from "axios";
 import {favoritesArrayToString} from "../../helpers/helpers.js";
+import {LoginContext} from "../../context/LoginContext.jsx";
 
-function ClickedHeart({cocktailID, cocktailName, userIsLoggedIn, username, JWTToken, favorites, setFavorites}) {
+function ClickedHeart({cocktailID, cocktailName}) {
+    const {userIsLoggedIn, username, JWTToken, favorites, setFavorites} = useContext(LoginContext);
     const favorite = favorites !== null && favorites.map((data) => data.idDrink).includes(cocktailID);
 
     async function toggleFavorite() {
